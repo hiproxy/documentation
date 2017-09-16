@@ -5,38 +5,38 @@ title: Find Config file
 > 
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
-如果是遵循[hiproxy的理念](../get_started/#Concept)的存放配置文件（包括配置文件的文件名），当hiproxy的启动时，能够自动查找项目的配置文件，不需要手动指定配置文件。
+If you place the configuration file (include the its name) by following [hiproxy concept](../get_started/#Concept), while hiproxy starts, it can automatically find the file without specifying the configuration file manually.
 
-如果没有遵循，把配置文件存放在其他路径或者不是使用默认的文件名称（hosts文件默认文件名称为`hosts`，rewrite文件默认的文件名称为`rewrite`），需要在启动的时候，手动指定配置文件名称。
+Otherwise, you have to specify the configuration file while hiproxy starts. In the case, you may place the configuration file anywhere, which can be named anything. (Omitted *hosts* file name is `hosts`, and *rewrite* file name is `rewrite`).
 
-## 指定配置文件
+## Specifiy configuration file
 
-要指定配置文件名称，可以使用选项`-c, --hosts-file <files>`和`-r, --rewrite-file <files>`。
+You can use some switches to specify the name of configuration file. They are `-c, --hosts-file <files>` or `-r, --rewrite-file <files>`.
 
-`-c, --hosts-file <files>`用来指定hosts的文件路径，多个文件使用`,`分隔。
+`-c, --hosts-file <files>` is used to specify the path of *hosts* file. `,` can be used to separate more than one files.
 
-`-r, --rewrite-file <files>`用来指定rewrite的文件路径，多个文件使用`,`分隔。
+`-r, --rewrite-file <files>` is used to specify the path of *rewrite* file. `,` can be used to separate more than one files.
 
-`<files>`也支持使用**简单的通配符模式**来指定多个文件，比如`--rewrite-file ./*/*.conf`。
+`<files>` supports **simple wildchar mode** to speify more files. For example, `--rewrite-file ./*/*.conf`.
 
-> **注意**
+> **Note**
 >
-> 如果指定了对应的配置文件，hiproxy会查找指定的文件，不再查找默认的`hosts`或者`rewrite`，比如：
-> * 指定了`-c ./*/hosts.conf`，则不再查找名称为`hosts`的文件。
-> * 指定了`-r ./*/rewrite.conf`，则不再查找名称为`rewrite`的文件。
+> If you specified a configuration file, hiproxy would look for specified file to instead of looking for omitted `hosts` ro `rewrite`. For example:
+> * If `-c ./*/hosts.conf` is specified, hiproxy would ignore the file named `hosts`.
+> * If `-r ./*/rewrite.conf` is specified, hiproxy would ignore the file named `rewrite`.
 
-## 配置文件名称通配符
+## Wildchars in configuraton files
 
-支持的通配符有：
+Suporting wildchars:
 
-通配符 | 说明 | 示例 | 匹配 | 不匹配
+wildchars | description | example | mached | unmached
 ---------|----------|---------|----------|---------
- \* | 匹配一个或者多个字符 | ./test-*.js | ./test-hello.js | ./test-.js
- ? | 匹配一个字符 | ./test?.js | ./testA.js | ./testAB.js
- [abc] | 匹配方括号的中任意字符。 | ./test[ABC].js | ./testA.js | ./testD.js
- [^abc] | 匹配非方括号的中任意字符。 | ./test[^ABC].js | ./testD.js | ./testA.js
- [!abc] | 同[^abc] | ./test[!ABC].js | ./testD.js | ./testA.js
+ \* | Match one or more characters. | ./test-*.js | ./test-hello.js | ./test-.js
+ ? | Match only one character. | ./test?.js | ./testA.js | ./testAB.js
+ [abc] | Matches a single character that is contained within the brackets. | ./test[ABC].js | ./testA.js | ./testD.js
+ [^abc] | Matches a single character that is not contained within the brackets. | ./test[^ABC].js | ./testD.js | ./testA.js
+ [!abc] | Same as [^abc] | ./test[!ABC].js | ./testD.js | ./testA.js
 
-> **注意**
+> **Note**
 > 
-> 不支持使用`**`来查找任意层级目录中的文件。
+> Do not support use `**` to look for files in any hierarchy.
