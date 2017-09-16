@@ -27,12 +27,5 @@ highlight:
 
 # disqus_shortname: hiproxy
 google_analytics: UA-103231920-1
-# algolia:
-#   en:
-#     api_key: 
-#     index_name: hiproxy
-#   zh-cn:
-#     api_key: 
-#     index_name: hiproxy_zh-cn
 twitter: zhangdaiying
 github: hiproxy/hiproxy

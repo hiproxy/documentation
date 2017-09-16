@@ -24,6 +24,8 @@
   font-family: font-mono
   display: inline-block
   padding: 15px 20px
+  border-bottom-left-radius: 2px
+  border-top-left-radius: 2px
   &:before
     content: "$"
     opacity: 0.5
@@ -36,6 +38,8 @@
   padding: 15px
   text-decoration: none
   transition: 0.2s
+  border-top-right-radius: 2px
+  border-bottom-right-radius: 2px
   &:hover
     background: color-link-hover
 
@@ -111,14 +115,15 @@
   font-size: 18px
   font-family: font-title
   display: inline-block
-  color: color-link
+  color: #fff
   text-decoration: none
   margin: 40px 0
-  border: 3px solid
-  border-color: lighten(color-link, 20%)
-  padding: 12px 24px
+  background-color: lighten(color-link, 20%)
+  padding: 10px 24px
   position: relative
   transition: 0.2s
+  border-radius: 2px
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.26)
   &:hover
-    background: @border-color
+    background: #4285f4
     color: #fff

@@ -73,17 +73,12 @@ hexo.extend.helper.register('doc_sidebar', function (className) {
   var result = '';
 
   _.each(sidebar[lang][type], function (menu, title) {
-    var itemClass = className + '-link';
-    if (typeof menu === 'string') {
-      if (menu === path) itemClass += ' current';
-      result += '<a href="' + menu + '" class="' + itemClass + '">' + title + '</a>';
-    } else {
-      result += '<strong class="' + className + '-title">' + title + '</strong>';
-      _.each(menu, function (link, text) {
-        if (link === path) itemClass += ' current';
-        result += '<a href="' + link + '" class="' + itemClass + '">' + text + '</a>';
-      });
-    }
+        result += '<strong class="' + className + '-title">' + title + '</strong>';
+    _.each(menu, function (link, text) {
+      var itemClass = className + '-link';
+      if (link === path) itemClass += ' current';
+      result += '<a href="' + link + '" class="' + itemClass + '">' + text + '</a>';
+    });
   });
 
   return result;
@@ -144,7 +139,7 @@ hexo.extend.helper.register('url_for_lang', function(path) {
 });
 
 hexo.extend.helper.register('raw_link', function(path) {
-  return 'https://github.com/hexojs/site/edit/master/source/' + path;
+  return 'https://github.com/hiproxy/documentation/edit/master/source/' + path;
 });
 
 hexo.extend.helper.register('page_anchor', function(str) {
