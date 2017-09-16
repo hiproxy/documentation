@@ -1,12 +1,34 @@
 <footer id="footer" class="wrapper">
   <div class="inner">
-    <div id="footer-copyright">
-      &copy; {{ moment(Date.now()).year() }} <a href="https://github.com/hiproxy/hiproxy/graphs/contributors" target="_blank">{{ config.author }}</a><br>
-      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    <div class="column">
+      <p class="column-title">
+        &copy; {{ moment(Date.now()).year() }} <a href="https://github.com/hiproxy/hiproxy/graphs/contributors" target="_blank">{{ config.author }}</a><br>
+      </p>
+      {{ footer_links('licenses') }}
     </div>
-    <div id="footer-links">
+    <div class="column">
+      <p class="column-title">
+        <i class="fa fa-github"></i> Github
+      </p>
+      {{ footer_links('github') }}
+    </div>
+    <div class="column">
+      <p class="column-title">
+        <i class="fa fa-code"></i> 相关项目
+      </p>
+      {{ footer_links('libs') }}
+    </div>
+    <div class="column">
+      <p class="column-title">
+        <i class="fa fa-link"></i> 相关链接
+      </p>
+      {{ footer_links('links') }}
+    </div>
+    <!--
+    <div class="column" id="other-links">
       <a href="https://twitter.com/{{ config.twitter }}" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
-      <a href="https://github.com/{{ config.github }}" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+      <a href="https://github.com/{{ config.github }}" class="footer-link" target="_blank"><i class="fa fa-github"></i></a>
     </div>
+    -->
   </div>
 </footer>

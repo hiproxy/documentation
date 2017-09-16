@@ -195,3 +195,23 @@ hexo.extend.helper.register('disqus_lang', function() {
 
   return data.disqus_lang || lang;
 });
+
+hexo.extend.helper.register('footer_links', function(type) {
+  var lang = this.page.lang;
+  var data = this.site.data.footerlinks[lang][type];
+  var html = [
+    '<ul class="links">'
+  ];
+
+  _.each(data, function (link, title) {
+    html.push(
+      '<li class="link-item">',
+        '<a href="' + link + '" target="_blank">' + title + '</a>',
+      '</li>'
+    );
+  });
+
+  html.push('</ul>');
+
+  return html.join('');
+});
