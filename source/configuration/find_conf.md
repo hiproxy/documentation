@@ -11,7 +11,7 @@ Otherwise, you have to specify the configuration file while hiproxy starts. In t
 
 ## Specifiy configuration file
 
-You can use some switches to specify the name of configuration file. They are `-c, --hosts-file <files>` or `-r, --rewrite-file <files>`.
+You can use some options to specify the name of configuration file. They are `-c, --hosts-file <files>` or `-r, --rewrite-file <files>`.
 
 `-c, --hosts-file <files>` is used to specify the path of *hosts* file. `,` can be used to separate more than one files.
 
