@@ -18,7 +18,7 @@ en:
       Built-in Variables: built_in_variable.html
   api:
     Node.js API:
-      API: api.html
+      API: index.html
       Events: events.html
   developers:
     Developers:
@@ -28,7 +28,7 @@ en:
       Extend Route: route.html
   faqs:
     FAQs:
-      FAQs: faqs.html
+      FAQs: index.html
 
 zh-cn:
   get_started:
@@ -51,7 +51,7 @@ zh-cn:
       内置变量: built_in_variable.html
   api:
     Node.js API:
-      API: api.html
+      API: index.html
       事件: events.html
   developers:
     开发者:
@@ -61,4 +61,4 @@ zh-cn:
       扩展页面: route.html
   faqs:
     常见问题:
-      FAQs: faqs.html
+      FAQs: index.html

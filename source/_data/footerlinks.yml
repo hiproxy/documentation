@@ -1,0 +1,37 @@
+en:
+  licenses:
+    'hiproxy LICENSE: MIT': 'https://github.com/hiproxy/hiproxy/blob/master/LICENSE'
+    'Doc LICENSE: CC BY 4.0': 'http://creativecommons.org/licenses/by/4.0/'
+  github:
+    Organization: https://github.com/hiproxy
+    Project Code: https://github.com/hiproxy/hiproxy
+    Docmentation Code: https://github.com/hiproxy/documentation
+  libs:
+    hemsl: https://github.com/hemsl/hemsl
+    step-flow: https://github.com/hiproxy/step-flow
+    conf-parser: https://github.com/hiproxy/conf-parser
+    open-browser: https://github.com/hiproxy/open-browser
+  links:
+    qfight: https://github.com/qfight
+    YMFE: http://ued.qunar.com/ymfe/about
+    Qunar UED: http://ued.qunar.com/
+    去哪儿网: https://www.qunar.com
+
+zh-cn:
+  licenses:
+    'hiproxy许可: MIT': 'https://github.com/hiproxy/hiproxy/blob/master/LICENSE'
+    '文档许可: CC BY 4.0': 'http://creativecommons.org/licenses/by/4.0/'
+  github:
+    组织: https://github.com/hiproxy
+    项目源码: https://github.com/hiproxy/hiproxy
+    文档源码: https://github.com/hiproxy/documentation
+  libs:
+    hemsl: https://github.com/hemsl/hemsl
+    step-flow: https://github.com/hiproxy/step-flow
+    conf-parser: https://github.com/hiproxy/conf-parser
+    open-browser: https://github.com/hiproxy/open-browser
+  links:
+    qfight: https://github.com/qfight
+    YMFE: http://ued.qunar.com/ymfe/about
+    Qunar UED: http://ued.qunar.com/
+    去哪儿网: https://www.qunar.com
