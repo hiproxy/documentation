@@ -15,3 +15,7 @@ page:
   prev: Prev
   next: Next
   last_updated: "Last updated: %s"
+
+footer_links:
+  libs: 'Related Projects'
+  links: 'Related Links'

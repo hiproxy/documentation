@@ -4,7 +4,7 @@ en:
     'Doc LICENSE: CC BY 4.0': 'http://creativecommons.org/licenses/by/4.0/'
   github:
     Organization: https://github.com/hiproxy
-    Project Code: https://github.com/hiproxy/hiroxy
+    Project Code: https://github.com/hiproxy/hiproxy
     Docmentation Code: https://github.com/hiproxy/documentation
   libs:
     hemsl: https://github.com/hemsl/hemsl
@@ -23,7 +23,7 @@ zh-cn:
     '文档许可: CC BY 4.0': 'http://creativecommons.org/licenses/by/4.0/'
   github:
     组织: https://github.com/hiproxy
-    项目源码: https://github.com/hiproxy/hiroxy
+    项目源码: https://github.com/hiproxy/hiproxy
     文档源码: https://github.com/hiproxy/documentation
   libs:
     hemsl: https://github.com/hemsl/hemsl

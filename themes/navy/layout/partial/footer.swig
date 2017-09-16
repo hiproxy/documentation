@@ -14,13 +14,13 @@
     </div>
     <div class="column">
       <p class="column-title">
-        <i class="fa fa-code"></i> 相关项目
+        <i class="fa fa-code"></i> {{ __('footer_links.libs') }}
       </p>
       {{ footer_links('libs') }}
     </div>
     <div class="column">
       <p class="column-title">
-        <i class="fa fa-link"></i> 相关链接
+        <i class="fa fa-link"></i> {{ __('footer_links.links') }}
       </p>
       {{ footer_links('links') }}
     </div>
