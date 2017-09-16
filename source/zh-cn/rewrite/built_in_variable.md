@@ -1,4 +1,4 @@
-title: Rewrite built in variables - rewrite内置变量
+title: rewrite内置变量
 ---
 
 > 如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！

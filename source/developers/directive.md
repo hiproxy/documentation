@@ -1,4 +1,4 @@
-title: Rewrite Directive 指令配置
+title: Rewrite Directive
 ---
 
 > 如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！

@@ -1,4 +1,4 @@
-title: Run Example
+title: Run Example Project
 ---
 
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
