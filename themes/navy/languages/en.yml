@@ -1,0 +1,17 @@
+menu:
+  home: Home
+  api: API
+  get_started: Get Started
+  configuration: Configuration
+  developers: Developers
+
+index:
+  get_started: Get Started
+
+page:
+  contents: Contents
+  back_to_top: Back to Top
+  improve: Improve this doc
+  prev: Prev
+  next: Next
+  last_updated: "Last updated: %s"

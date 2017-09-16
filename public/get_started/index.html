@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Introduction | hiproxy</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://hiproxy.org/get_started/index.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="http://hiproxy.org/zh-cn/get_started/index.html">
+    
+      <link rel="alternative" hreflang="en" href="http://hiproxy.org/get_started/index.html">
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/icons/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
+  <link rel="apple-touch-icon" sizes="58x58" href="/icons/android-touch-icon.png" />
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="hiproxy">
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103231920-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">hiproxy</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/" class="main-nav-link">Home</a><a href="/get_started/" class="main-nav-link">Get Started</a><a href="/configuration/" class="main-nav-link">Configuration</a><a href="/rewrite/" class="main-nav-link">Rewrite</a><a href="/api/" class="main-nav-link">API</a><a href="/developers/" class="main-nav-link">Developers</a><a href="/faqs/" class="main-nav-link">FAQs</a>
+      <a href="https://github.com/hiproxy/hiproxy" class="main-nav-link"><i class="fa fa-github-alt"></i></a>
+      <div id="search-input-wrap">
+        <div id="search-input-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <input type="search" id="search-input" placeholder="Search...">
+      </div>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>English</span></label>
+      <select id="lang-select" data-canonical="get_started/index.html">
+        
+          <option value="zh-cn">简体中文</option>
+        
+          <option value="en" selected>English</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Introduction</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/get_started/index.md" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <blockquote>
+<p>If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!</p>
+</blockquote>
+<p>hiproxy is a lightweight, extendable network proxy based on Node.js, the main purpose is to resolve the hosts management and proxy request problem that multiple developers encountered in development. And there is no need to modify system hosts and start Nginx service.</p>
+<p>hiproxy supports hosts file, and the syntax is extended for hosts, it now supports port number. Besides, hiproxy supports configuration file using syntax similar to that for Nginx.</p>
+<h2 id="Why-hiproxy" class="article-heading"><a href="#Why-hiproxy" class="headerlink" title="Why hiproxy"></a>Why hiproxy<a class="article-anchor" href="#Why-hiproxy" aria-hidden="true"></a></h2><p>In front-end development, if developers usually encounter some of the following problems:</p>
+<ol>
+<li>While debugging online page issues, if both local development and back-end running ability for projects (Node.js/Java project) are required, <strong>it may costs a lot for a front-end developer to build a back-end environment locally</strong>.</li>
+<li>If multiple front-end projects exist, <strong>with one domain</strong>, <strong>some projects</strong> need to request <strong>online</strong> resources, <strong>other</strong> projects request <strong>local</strong> resources.</li>
+<li>In order to resolve the cross-domain problems, local development needs to <strong>modify Response Header</strong>.</li>
+<li>While developing https site locally, <strong>certificate is not trusted</strong>.</li>
+<li>With system <strong>hosts</strong> changed，<strong>it won’t take effect immediately</strong>.</li>
+</ol>
+<p>We can use Nginx to resolve the problems above. Nginx is excellent and also a very good friend of our front-end developer. The configuration file style of Nginx is very intuitive, and the configuration efficiency is high.</p>
+<p>However, when using Nginx, we also need to use hosts to send the related requests to the local Nginx service.</p>
+<p>In addition, in most cases, the Nginx configuration file will not be submitted to the repository, so other members of the team will copy each others’ configuration file, therefore the efficiency is relatively low, and once a configuration file has been modified, other configuration files will not be updated in time. For the configuration of multiple domains, they are placed in a unified directory, and then being included in the main configuration, which is also inconvenient.</p>
+<p><strong>hosts</strong>, <strong>revers proxy</strong>, <strong>https</strong> and <strong>cache</strong> Will these trivial things be solved in a unified way?</p>
+<p>So there is hiproxy.</p>
+<h2 id="Feature" class="article-heading"><a href="#Feature" class="headerlink" title="Feature"></a>Feature<a class="article-anchor" href="#Feature" aria-hidden="true"></a></h2><ul>
+<li>Nginx-styled configuration file format supported, configuration is simple and intuitive</li>
+<li>Hosts and extensions supported, as well as port number</li>
+<li>Plugins extending <code>rewrite</code> commands, CLI commands and page supported</li>
+<li>HTTPS certificate auto-generate</li>
+<li>Proxy auto-config</li>
+<li>Background start and log file output</li>
+<li>Configuration file auto-find</li>
+<li>Browser window auto-open and proxy auto-config</li>
+<li>Node.js API provided</li>
+<li>…</li>
+</ul>
+<h2 id="Concept" class="article-heading"><a href="#Concept" class="headerlink" title="Concept"></a>Concept<a class="article-anchor" href="#Concept" aria-hidden="true"></a></h2><p>After rethought many of the existing development models and summed up some of the encountered problems, hiproxy is developed based on the following two concepts:</p>
+<ul>
+<li><strong>Workspace</strong>：hiproxy works in Workspace, the configuration files for all projects in the workspace are resolved by hiproxy. <em>The workspace can be specified via option <code>-w, --workspace &lt;workspace&gt;</code>, or directly into the workspace to start the proxy service</em>.</li>
+<li><strong>Shared configuration file</strong>: Configuration files are submitted to the repository, and team members share them. Previously, hosts and Nginx configurations were generally not submitted to the repository, and the team members were locally maintained, costly and inefficient.</li>
+</ul>
+<h2 id="Basic-principle" class="article-heading"><a href="#Basic-principle" class="headerlink" title="Basic principle"></a>Basic principle<a class="article-anchor" href="#Basic-principle" aria-hidden="true"></a></h2><p>The core functionality of hiproxy is the proxy request, it handles some of the development details at the same time as the proxy request, such as automatic generation of HTTPS certificates, automatic configuration of browser agents, and so on.</p>
+<p>The basic principles of hiproxy core functionality describe as follows.</p>
+<h3 id="Proxy-request" class="article-heading"><a href="#Proxy-request" class="headerlink" title="Proxy request"></a>Proxy request<a class="article-anchor" href="#Proxy-request" aria-hidden="true"></a></h3><p>hiproxy makes full use of the <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack" target="_blank" rel="external">Man-in-the-middle attack</a> model as intermediaries, data is forwarded at the client and server side to implement the HTTP and proxy for the HTTPS requests.</p>
+<h4 id="HTTP-request" class="article-heading"><a href="#HTTP-request" class="headerlink" title="HTTP request"></a>HTTP request<a class="article-anchor" href="#HTTP-request" aria-hidden="true"></a></h4><p>For the <strong>HTTP request</strong>, if the browser has configured the proxy, it will send <code>GET</code>/<code>POST</code> and so on to the hiproxy agent. After the hiproxy receives the request, it makes some changes to the requested information based on the user’s <code>hosts</code> and <code>rewrite</code> rules, and then goes to the appropriate server to request the resource and return it to the client.</p>
+<h4 id="HTTPS-request" class="article-heading"><a href="#HTTPS-request" class="headerlink" title="HTTPS request"></a>HTTPS request<a class="article-anchor" href="#HTTPS-request" aria-hidden="true"></a></h4><p>For the <strong>HTTPS request</strong>, the browser will send a <code>CONNECT</code> request to hiproxy service after the proxy configured, then hiproxy will start a new TCP connection to the final target server (i.e. a new tunnel) and then transmit the data between the client and server.</p>
+<p>However, it’s only a simple proxy request, and hiproxy cannot obtain the requested information, such as parameters and Cookie, and there is no way to modify the response data. If we do not need to make corresponding changes to the request and response information, this will meet our needs.</p>
+<p>What needs to be done if we need to implement the same functionality as the HTTP request: do some changes to the request and response based on the requested information?</p>
+<p>Fortunately, we can make full use of <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack" target="_blank" rel="external">Man-in-the-middle attack</a> model. Because the final target server can get the requested information, we can start an intermediary service between the hiproxy and the final server (here referred to as <em>M</em>), when hiproxy receives a <code>CONNECT</code> request, it starts a new connection to the <em>M</em>, when the <em>M</em> receives the request, it makes some modifications to the request information, like the HTTP request agent, and then requests the resource from the target server and returns it to the client.</p>
+<h3 id="HTTPS-certificate-generation" class="article-heading"><a href="#HTTPS-certificate-generation" class="headerlink" title="HTTPS certificate generation"></a>HTTPS certificate generation<a class="article-anchor" href="#HTTPS-certificate-generation" aria-hidden="true"></a></h3><p>In the SSL/TLS handshake, the first message sent by the client (Client Hello) will be using the extension <a href="https://en.wikipedia.org/wiki/Server_Name_Indication" target="_blank" rel="external">SNI(Server Name Indication)</a> to send the requested domain to the server. Although only the domain information is sent, other requests, paths, parameters, and cookie are not sent, but the domain is sufficient for the certificate to be generated.</p>
+<p>When hiproxy gets the domain for the request:</p>
+<ul>
+<li>If the user has configured the certificate for the corresponding domain, the user configured certificate is sent to the client.</li>
+<li>Otherwise, a new domain certificate is generated and returned to the client.</li>
+</ul>
+<h3 id="Browser-window" class="article-heading"><a href="#Browser-window" class="headerlink" title="Browser window"></a>Browser window<a class="article-anchor" href="#Browser-window" aria-hidden="true"></a></h3><p>First, find the path corresponding to the browser in the system. For example, on OSX, look for <code>&lt;browser-name&gt;.app</code>, then start the app and pass arguments to configure the proxy server address.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;path-to-chrome-app&gt;.app [options] [url]</div></pre></td></tr></table></figure>
+<p>On Windows, you go to the registry to find the <code>exe</code> file path for the browser. Then run and pass arguments.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;path-to-chrome-app&gt;.exe [options] [url]</div></pre></td></tr></table></figure>
+<p>For Chrome/Opera, we need to pass two arguments:</p>
+<ul>
+<li><p><strong>Address of proxy service</strong>: <code>--proxy-pac-url</code> (PAC proxy file path) or <code>--proxy-server</code> (general agent address), hiproxy supports all.</p>
+</li>
+<li><p><strong>The directory where user data is stored</strong>: <code>--user-data-dir</code></p>
+</li>
+</ul>
+<p>When passing this argument, and the directory is not the default directory the browser uses to store user data, it will create a new browser instance which is independent of any other browser window and has no effect on each other(the instance has been configured with proxy, the request of other browser instance will not pass through the proxy configuration here).</p>
+<h3 id="Configuration-file" class="article-heading"><a href="#Configuration-file" class="headerlink" title="Configuration file"></a>Configuration file<a class="article-anchor" href="#Configuration-file" aria-hidden="true"></a></h3><p>hiproxy can use hosts as a simple proxy request and configure rewrite rules similar to the Nginx syntax for complex configurations.</p>
+<h4 id="hosts" class="article-heading"><a href="#hosts" class="headerlink" title="hosts"></a>hosts<a class="article-anchor" href="#hosts" aria-hidden="true"></a></h4><p>Consistent with the system <code>hosts</code> syntax, in addition, port numbers are supported. Hosts can only configure the IP and port numbers corresponding to the domain, detailed routing configuration and request response modification are not supported. For more details, check <a href="../configuration/hosts.html">hosts</a>。</p>
+<h4 id="hosts-configuration-sample" class="article-heading"><a href="#hosts-configuration-sample" class="headerlink" title="hosts configuration sample"></a>hosts configuration sample<a class="article-anchor" href="#hosts-configuration-sample" aria-hidden="true"></a></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># comment</span></div><div class="line">127.0.0.1 example.com</div><div class="line"></div><div class="line"><span class="comment"># ip + port</span></div><div class="line">127.0.0.1:8800 blog.example.com life.example.com</div></pre></td></tr></table></figure>
+<h4 id="rewrite" class="article-heading"><a href="#rewrite" class="headerlink" title="rewrite"></a>rewrite<a class="article-anchor" href="#rewrite" aria-hidden="true"></a></h4><p>The rewrite rule configuration file allows you to use more complex configurations to satisfy complex usage scenarios. You can configure the route in detail and make modifications to the request response. The syntax for the rewrite rule configuration is very similar to that of the Nginx syntax. For more details, check <a href="../configuration/rewrite.html">rewrite</a>。</p>
+<h4 id="rewrite-configuration-sample" class="article-heading"><a href="#rewrite-configuration-sample" class="headerlink" title="rewrite configuration sample"></a>rewrite configuration sample<a class="article-anchor" href="#rewrite-configuration-sample" aria-hidden="true"></a></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Global variable</span></div><div class="line"><span class="built_in">set</span> <span class="variable">$port</span> 8899;</div><div class="line"><span class="built_in">set</span> <span class="variable">$ip</span>   127.0.0.1;</div><div class="line"><span class="built_in">set</span> <span class="variable">$online</span> 210.0.0.0;</div><div class="line"></div><div class="line"><span class="comment"># Domain configuration</span></div><div class="line">domain example.com &#123;</div><div class="line">  location / &#123;</div><div class="line">    proxy_pass http://<span class="variable">$online</span>/;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  location /blog/ &#123;</div><div class="line">    proxy_pass http://<span class="variable">$ip</span>:<span class="variable">$port</span>/blog/;</div><div class="line">    proxy_set_header from <span class="string">'hiproxy'</span>;</div><div class="line">    set_header proxy <span class="string">'hiproxy'</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Plugin-mechanism" class="article-heading"><a href="#Plugin-mechanism" class="headerlink" title="Plugin mechanism"></a>Plugin mechanism<a class="article-anchor" href="#Plugin-mechanism" aria-hidden="true"></a></h3><p>When hiproxy starts, it automatically finds the module at the beginning of the <code>hiproxy-plugin-</code> from the directory in the NPM global module (<code>npm, root, -g</code>) and automatically resolve the plugin content after finding the modules.</p>
+<p>Therefore, we only need global install plugins independently, no need to upgrade hiproxy, and the hiproxy plugin development is also independent, the plugin project itself is not dependent on hiproxy.</p>
+<p>For detailed plugin documents, check <a href="../developers/plugin.html">hiproxy Plugin</a>；</p>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2017-09-15T13:21:42.000Z" itemprop="dateModified">Last updated: 2017-09-15</time>
+                
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=hexoio" id="_carbonads_js"></script> -->
+              <strong class="sidebar-title">Contents</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Why-hiproxy"><span class="toc-text">Why hiproxy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Feature"><span class="toc-text">Feature</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Concept"><span class="toc-text">Concept</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-principle"><span class="toc-text">Basic principle</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Proxy-request"><span class="toc-text">Proxy request</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP-request"><span class="toc-text">HTTP request</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTPS-request"><span class="toc-text">HTTPS request</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTPS-certificate-generation"><span class="toc-text">HTTPS certificate generation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Browser-window"><span class="toc-text">Browser window</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Configuration-file"><span class="toc-text">Configuration file</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#hosts"><span class="toc-text">hosts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hosts-configuration-sample"><span class="toc-text">hosts configuration sample</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rewrite"><span class="toc-text">rewrite</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rewrite-configuration-sample"><span class="toc-text">rewrite configuration sample</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Plugin-mechanism"><span class="toc-text">Plugin mechanism</span></a></li></ol></li></ol>
+              <a href="#" id="article-toc-top">Back to Top</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">Get Started</strong><a href="installation.html" class="sidebar-link">Installation</a><a href="run_example.html" class="sidebar-link">Run Example</a><a href="applied_to_existing_projects.html" class="sidebar-link">Applied To Existing Projects</a><a href="cli_options.html" class="sidebar-link">CLI Options</a>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2017 <a href="https://github.com/hiproxy/hiproxy/graphs/contributors" target="_blank">hiproxy</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/zhangdaiying" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/hiproxy/hiproxy" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/" class="mobile-nav-link">Home</a><a href="/get_started/" class="mobile-nav-link">Get Started</a><a href="/configuration/" class="mobile-nav-link">Configuration</a><a href="/rewrite/" class="mobile-nav-link">Rewrite</a><a href="/api/" class="mobile-nav-link">API</a><a href="/developers/" class="mobile-nav-link">Developers</a><a href="/faqs/" class="mobile-nav-link">FAQs</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/hiproxy/hiproxy" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">Get Started</strong><a href="installation.html" class="mobile-nav-link">Installation</a><a href="run_example.html" class="mobile-nav-link">Run Example</a><a href="applied_to_existing_projects.html" class="mobile-nav-link">Applied To Existing Projects</a><a href="cli_options.html" class="mobile-nav-link">CLI Options</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>English</span></span>
+    <select id="mobile-lang-select" data-canonical="get_started/index.html">
+      
+        <option value="zh-cn">简体中文</option>
+      
+        <option value="en" selected>English</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia -->
+
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CLI options | hiproxy</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://hiproxy.org/get_started/cli_options.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="http://hiproxy.org/zh-cn/get_started/cli_options.html">
+    
+      <link rel="alternative" hreflang="en" href="http://hiproxy.org/get_started/cli_options.html">
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/icons/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
+  <link rel="apple-touch-icon" sizes="58x58" href="/icons/android-touch-icon.png" />
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="hiproxy">
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103231920-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">hiproxy</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/" class="main-nav-link">Home</a><a href="/get_started/" class="main-nav-link">Get Started</a><a href="/configuration/" class="main-nav-link">Configuration</a><a href="/rewrite/" class="main-nav-link">Rewrite</a><a href="/api/" class="main-nav-link">API</a><a href="/developers/" class="main-nav-link">Developers</a><a href="/faqs/" class="main-nav-link">FAQs</a>
+      <a href="https://github.com/hiproxy/hiproxy" class="main-nav-link"><i class="fa fa-github-alt"></i></a>
+      <div id="search-input-wrap">
+        <div id="search-input-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <input type="search" id="search-input" placeholder="Search...">
+      </div>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>English</span></label>
+      <select id="lang-select" data-canonical="get_started/cli_options.html">
+        
+          <option value="zh-cn">简体中文</option>
+        
+          <option value="en" selected>English</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">CLI options</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/get_started/cli_options.md" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <blockquote>
+<p>If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!</p>
+</blockquote>
+<h1 id="Command-Line-Commands-and-Options" class="article-heading"><a href="#Command-Line-Commands-and-Options" class="headerlink" title="Command Line Commands and Options"></a>Command Line Commands and Options<a class="article-anchor" href="#Command-Line-Commands-and-Options" aria-hidden="true"></a></h1><h2 id="Global-Commands" class="article-heading"><a href="#Global-Commands" class="headerlink" title="Global Commands"></a>Global Commands<a class="article-anchor" href="#Global-Commands" aria-hidden="true"></a></h2><p>The global <code>hiproxy</code> command without any options will display a welcome message like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; hiproxy</div><div class="line">  _     _</div><div class="line"> | |   (_)</div><div class="line"> | |__  _  welcome to use hiproxy</div><div class="line"> | <span class="string">'_ \| | current version is 1.1.2</span></div><div class="line"><span class="string"> | | | | | You can try `hiproxy --help` for more info</span></div><div class="line"><span class="string"> |_| |_|_|</span></div></pre></td></tr></table></figure>
+<p>If you specify the option <code>--help</code> or <code>-h</code>, you will see the complete help information.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&gt; hiproxy --<span class="built_in">help</span></div><div class="line"></div><div class="line">  Usage:</div><div class="line"></div><div class="line">    hiproxy [<span class="built_in">command</span>] [option]</div><div class="line"></div><div class="line">  Commands:</div><div class="line"></div><div class="line">    start    Start a <span class="built_in">local</span> proxy server</div><div class="line">    stop     Stop the <span class="built_in">local</span> proxy server (Only works <span class="keyword">in</span> daemon mode)</div><div class="line">    restart  Restart the <span class="built_in">local</span> proxy service (Only works <span class="keyword">in</span> daemon mode)</div><div class="line">    state    Show all the servers state (Only works <span class="keyword">in</span> daemon mode)</div><div class="line">    open     Open browser and <span class="built_in">set</span> proxy</div><div class="line">    hello    A <span class="built_in">test</span> <span class="built_in">command</span> that say hello to you.</div><div class="line"></div><div class="line">  Options:</div><div class="line"></div><div class="line">    -v, --version     Display version information</div><div class="line">    -h, --<span class="built_in">help</span>        Display <span class="built_in">help</span> information</div><div class="line">    --<span class="built_in">log</span>-dir &lt;dir&gt;   The <span class="built_in">log</span> directory when run <span class="keyword">in</span> background, default: user home directory</div><div class="line">    --<span class="built_in">log</span>-time        Show time info before every <span class="built_in">log</span> message</div><div class="line">    --<span class="built_in">log</span>-level       The <span class="built_in">log</span> levels, format: &lt;level1&gt;[,&lt;lavel2[,...]]</div><div class="line">    --grep &lt;content&gt;  Filter the <span class="built_in">log</span> data</div></pre></td></tr></table></figure>
+<h2 id="start" class="article-heading"><a href="#start" class="headerlink" title="start"></a>start<a class="article-anchor" href="#start" aria-hidden="true"></a></h2><p>This command will start a local proxy service on the specified port. You can specify whether the service is running in the background, if running in the background, all the log of the service will be redirect to the log files.</p>
+<p>The log file is located in the user’s home directory by default. Of course, you can specify the log file’s path via the option <code>--log-dir &lt;dir&gt;</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&gt; hiproxy start --<span class="built_in">help</span></div><div class="line"></div><div class="line">  USAGE:</div><div class="line"></div><div class="line">    start [--port &lt;port&gt;] [-xodD]</div><div class="line"></div><div class="line">  DESCRIBE:</div><div class="line"></div><div class="line">    Start a <span class="built_in">local</span> proxy server</div><div class="line"></div><div class="line">  OPTIONS:</div><div class="line"></div><div class="line">    -h, --<span class="built_in">help</span>                    show <span class="built_in">help</span> info</div><div class="line">    -D, --daemon                  Run hiproxy <span class="keyword">in</span> background</div><div class="line">    -c, --hosts-file &lt;files&gt;      hosts files, format: &lt;file1&gt;[,&lt;file2&gt;[,...]]</div><div class="line">    -s, --https                   Enable HTTPS proxy</div><div class="line">    -m, --middle-man-port &lt;port&gt;  The Man-In-The-MiddleHTTPS proxy port, default: 10010</div><div class="line">    -o, --open [browser]          Open a browser window and use hiproxy proxy</div><div class="line">    --pac-proxy                   Use Proxy auto-configuration (PAC)</div><div class="line">    -p, --port &lt;port&gt;             HTTP proxy port, default: 5525</div><div class="line">    -r, --rewrite-file &lt;files&gt;    rewrite config files, format: &lt;file1&gt;[,&lt;file2&gt;[,...]]</div><div class="line">    --sys-proxy &lt;path&gt;            Your own proxy server path, format: &lt;ip&gt;[:port], only works when use PAC</div><div class="line">    -w, --workspace &lt;dir&gt;         The workspace</div></pre></td></tr></table></figure>
+<h2 id="stop" class="article-heading"><a href="#stop" class="headerlink" title="stop"></a>stop<a class="article-anchor" href="#stop" aria-hidden="true"></a></h2><p>If the proxy service is running in the background, hiproxy provides a <code>stop</code> command to stop the service</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; hiproxy stop</div></pre></td></tr></table></figure>
+<h2 id="open" class="article-heading"><a href="#open" class="headerlink" title="open"></a>open<a class="article-anchor" href="#open" aria-hidden="true"></a></h2><p>The <code>open</code> command can open a browser window and automatically set up the browser’s proxy info based on the currently started proxy service.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&gt; hiproxy open --<span class="built_in">help</span></div><div class="line"></div><div class="line">  USAGE:</div><div class="line"></div><div class="line">    open [options]</div><div class="line"></div><div class="line">  DESCRIBE:</div><div class="line"></div><div class="line">    Open browser and <span class="built_in">set</span> proxy</div><div class="line"></div><div class="line">  OPTIONS:</div><div class="line"></div><div class="line">    -h, --<span class="built_in">help</span>               show <span class="built_in">help</span> info</div><div class="line">    -b, --browser &lt;browser&gt;  Browser name, default: chrome. Valid alues: chrome,firefox,opera</div><div class="line">    --pac-proxy              Use Proxy auto-configuration (PAC)</div></pre></td></tr></table></figure>
+<h2 id="state" class="article-heading"><a href="#state" class="headerlink" title="state"></a>state<a class="article-anchor" href="#state" aria-hidden="true"></a></h2><p>This command will display the basic status information of the currently started proxy service.</p>
+<h2 id="restart" class="article-heading"><a href="#restart" class="headerlink" title="restart"></a>restart<a class="article-anchor" href="#restart" aria-hidden="true"></a></h2><p>This command will restart the proxy service.</p>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2017-09-15T13:21:42.000Z" itemprop="dateModified">Last updated: 2017-09-15</time>
+                
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=hexoio" id="_carbonads_js"></script> -->
+              <strong class="sidebar-title">Contents</strong>
+              <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Command-Line-Commands-and-Options"><span class="toc-text">Command Line Commands and Options</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Global-Commands"><span class="toc-text">Global Commands</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#start"><span class="toc-text">start</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#stop"><span class="toc-text">stop</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#open"><span class="toc-text">open</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#state"><span class="toc-text">state</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#restart"><span class="toc-text">restart</span></a></li></ol></li></ol>
+              <a href="#" id="article-toc-top">Back to Top</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">Get Started</strong><a href="installation.html" class="sidebar-link">Installation</a><a href="run_example.html" class="sidebar-link">Run Example</a><a href="applied_to_existing_projects.html" class="sidebar-link">Applied To Existing Projects</a><a href="cli_options.html" class="sidebar-link current">CLI Options</a>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2017 <a href="https://github.com/hiproxy/hiproxy/graphs/contributors" target="_blank">hiproxy</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/zhangdaiying" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/hiproxy/hiproxy" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/" class="mobile-nav-link">Home</a><a href="/get_started/" class="mobile-nav-link">Get Started</a><a href="/configuration/" class="mobile-nav-link">Configuration</a><a href="/rewrite/" class="mobile-nav-link">Rewrite</a><a href="/api/" class="mobile-nav-link">API</a><a href="/developers/" class="mobile-nav-link">Developers</a><a href="/faqs/" class="mobile-nav-link">FAQs</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/hiproxy/hiproxy" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">Get Started</strong><a href="installation.html" class="mobile-nav-link">Installation</a><a href="run_example.html" class="mobile-nav-link">Run Example</a><a href="applied_to_existing_projects.html" class="mobile-nav-link">Applied To Existing Projects</a><a href="cli_options.html" class="mobile-nav-link current">CLI Options</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>English</span></span>
+    <select id="mobile-lang-select" data-canonical="get_started/cli_options.html">
+      
+        <option value="zh-cn">简体中文</option>
+      
+        <option value="en" selected>English</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia -->
+
+
+</body>
+</html>

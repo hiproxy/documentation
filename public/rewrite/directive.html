@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Rewrite Directive | hiproxy</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://hiproxy.org/rewrite/directive.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="http://hiproxy.org/zh-cn/rewrite/directive.html">
+    
+      <link rel="alternative" hreflang="en" href="http://hiproxy.org/rewrite/directive.html">
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/icons/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
+  <link rel="apple-touch-icon" sizes="58x58" href="/icons/android-touch-icon.png" />
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="hiproxy">
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103231920-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">hiproxy</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/" class="main-nav-link">Home</a><a href="/get_started/" class="main-nav-link">Get Started</a><a href="/configuration/" class="main-nav-link">Configuration</a><a href="/rewrite/" class="main-nav-link">Rewrite</a><a href="/api/" class="main-nav-link">API</a><a href="/developers/" class="main-nav-link">Developers</a><a href="/faqs/" class="main-nav-link">FAQs</a>
+      <a href="https://github.com/hiproxy/hiproxy" class="main-nav-link"><i class="fa fa-github-alt"></i></a>
+      <div id="search-input-wrap">
+        <div id="search-input-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <input type="search" id="search-input" placeholder="Search...">
+      </div>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>English</span></label>
+      <select id="lang-select" data-canonical="rewrite/directive.html">
+        
+          <option value="zh-cn">简体中文</option>
+        
+          <option value="en" selected>English</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Rewrite Directive</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/rewrite/directive.md" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <blockquote>
+<p>如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！</p>
+<p>If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!</p>
+</blockquote>
+<h2 id="指令" class="article-heading"><a href="#指令" class="headerlink" title="指令"></a>指令<a class="article-anchor" href="#指令" aria-hidden="true"></a></h2><p><code>指令</code>（也称：<code>命令</code>）用于设置变量，或者对request/response做一些操作。</p>
+<h3 id="set" class="article-heading"><a href="#set" class="headerlink" title="set"></a>set<a class="article-anchor" href="#set" aria-hidden="true"></a></h3><p>描述：定义变量</p>
+<p>语法：<strong>set</strong> key value</p>
+<p><strong>作用域链</strong>：global, domain, location</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> <span class="variable">$server</span> hiipack;</div></pre></td></tr></table></figure>
+<h3 id="代理请求相关指令" class="article-heading"><a href="#代理请求相关指令" class="headerlink" title="代理请求相关指令"></a>代理请求相关指令<a class="article-anchor" href="#代理请求相关指令" aria-hidden="true"></a></h3><p>代理请求相关的指令，用于操作代理服务向目标服务器发送请求的<code>Request</code>对象。</p>
+<p><strong>作用域链</strong>：domain, location</p>
+<h4 id="proxy-set-header" class="article-heading"><a href="#proxy-set-header" class="headerlink" title="* proxy_set_header"></a>* proxy_set_header<a class="article-anchor" href="#proxy-set-header" aria-hidden="true"></a></h4><p>描述：设置请求头部字段</p>
+<p>语法：<strong>proxy_set_header</strong> key value</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">proxy_set_header Host some.example.com;</div></pre></td></tr></table></figure>
+<h4 id="proxy-hide-header" class="article-heading"><a href="#proxy-hide-header" class="headerlink" title="* proxy_hide_header"></a>* proxy_hide_header<a class="article-anchor" href="#proxy-hide-header" aria-hidden="true"></a></h4><p>描述：删除请求头部字段</p>
+<p>语法：<strong>proxy_hide_header</strong> key</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">proxy_hide_header Host;</div></pre></td></tr></table></figure>
+<h4 id="proxy-set-cookie" class="article-heading"><a href="#proxy-set-cookie" class="headerlink" title="* proxy_set_cookie"></a>* proxy_set_cookie<a class="article-anchor" href="#proxy-set-cookie" aria-hidden="true"></a></h4><p>描述：设置请求Cookie</p>
+<p>语法：<strong>proxy_set_cookie</strong> key value</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">proxy_set_cookie from hiproxy;</div></pre></td></tr></table></figure>
+<h4 id="proxy-hide-cookie" class="article-heading"><a href="#proxy-hide-cookie" class="headerlink" title="* proxy_hide_cookie"></a>* proxy_hide_cookie<a class="article-anchor" href="#proxy-hide-cookie" aria-hidden="true"></a></h4><p>描述：删除请求Cookie字段</p>
+<p>语法：<strong>proxy_hide_cookie</strong> key</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">proxy_hide_cookie from;</div></pre></td></tr></table></figure>
+<h3 id="代理响应相关指令" class="article-heading"><a href="#代理响应相关指令" class="headerlink" title="代理响应相关指令"></a>代理响应相关指令<a class="article-anchor" href="#代理响应相关指令" aria-hidden="true"></a></h3><p>代理响应相关的指令用于配置代理服务器响应浏览器的<code>Response</code>对象。</p>
+<p><strong>作用域链</strong>：domain, location</p>
+<h4 id="set-header" class="article-heading"><a href="#set-header" class="headerlink" title="* set_header"></a>* set_header<a class="article-anchor" href="#set-header" aria-hidden="true"></a></h4><p>描述：添加Header字段</p>
+<p>语法：<strong>set_header</strong> key value</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set_header SERVER hiproxy;</div></pre></td></tr></table></figure>
+<h4 id="hide-header" class="article-heading"><a href="#hide-header" class="headerlink" title="* hide_header"></a>* hide_header<a class="article-anchor" href="#hide-header" aria-hidden="true"></a></h4><p>描述：删除Header字段</p>
+<p>语法：<strong>hide_header</strong> key</p>
+<p><em>例子</em>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hide_header SERVER;</div></pre></td></tr></table></figure>
+<h4 id="set-cookie" class="article-heading"><a href="#set-cookie" class="headerlink" title="* set_cookie"></a>* set_cookie<a class="article-anchor" href="#set-cookie" aria-hidden="true"></a></h4><p>描述：设置Cookie字段</p>
+<p>语法：<strong>set_cookie</strong> key value</p>
+<p>例子</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">set_cookie SESSION_ID 2BF36A09CB35FD71E;</div></pre></td></tr></table></figure>
+<h4 id="hide-cookie" class="article-heading"><a href="#hide-cookie" class="headerlink" title="* hide_cookie"></a>* hide_cookie<a class="article-anchor" href="#hide-cookie" aria-hidden="true"></a></h4><p>描述：删除Cookie字段</p>
+<p>语法：<strong>hide_cookie</strong> key</p>
+<p><em>例子</em>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hide_cookie SESSION_ID;</div></pre></td></tr></table></figure>
+<h4 id="send-file" class="article-heading"><a href="#send-file" class="headerlink" title="* send_file"></a>* send_file<a class="article-anchor" href="#send-file" aria-hidden="true"></a></h4><p>描述：返回指定的文件</p>
+<p>语法：<strong>send_file</strong> file_name</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">send_file index.html;</div><div class="line">send_file /site/index.html;</div></pre></td></tr></table></figure>
+<h4 id="echo" class="article-heading"><a href="#echo" class="headerlink" title="* echo"></a>* echo<a class="article-anchor" href="#echo" aria-hidden="true"></a></h4><p>描述：返回指定内容</p>
+<p>语法：<strong>echo</strong> string</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> &lt;h1&gt;hello_echo&lt;/h1&gt;;</div><div class="line"><span class="built_in">echo</span> &lt;p&gt;finish&lt;/p&gt;;</div></pre></td></tr></table></figure>
+<h3 id="domain内部指令" class="article-heading"><a href="#domain内部指令" class="headerlink" title="domain内部指令"></a>domain内部指令<a class="article-anchor" href="#domain内部指令" aria-hidden="true"></a></h3><p>只在同一个domain内有效，且覆盖全局同名指令</p>
+<p><strong>作用域链</strong>：domain</p>
+<h4 id="ssl-certificate" class="article-heading"><a href="#ssl-certificate" class="headerlink" title="* ssl_certificate"></a>* ssl_certificate<a class="article-anchor" href="#ssl-certificate" aria-hidden="true"></a></h4><p>描述：手动指定证书文件</p>
+<p>参数：<strong>ssl_certificate</strong> file.crt（只支持相对路径，后期完善）</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">example.com =&gt; &#123;</div><div class="line">    ssl_certificate /user/root/.hiproxy/cert/example.crt;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="ssl-certificate-key" class="article-heading"><a href="#ssl-certificate-key" class="headerlink" title="* ssl_certificate_key"></a>* ssl_certificate_key<a class="article-anchor" href="#ssl-certificate-key" aria-hidden="true"></a></h4><p>描述：手动指定私钥文件</p>
+<p>参数：<strong>ssl_certificate_key</strong> file.key（只支持相对路径，后期完善）</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">example.com =&gt; &#123;</div><div class="line">    ssl_certificate_key /user/root/.hiproxy/cert/example.key;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="location内部指令" class="article-heading"><a href="#location内部指令" class="headerlink" title="location内部指令"></a>location内部指令<a class="article-anchor" href="#location内部指令" aria-hidden="true"></a></h3><p>只在同一个location内有效，且覆盖全局及domain同名指令</p>
+<p><strong>作用域链</strong>：domain, location</p>
+<h4 id="proxy-pass" class="article-heading"><a href="#proxy-pass" class="headerlink" title="* proxy_pass"></a>* proxy_pass<a class="article-anchor" href="#proxy-pass" aria-hidden="true"></a></h4><p>描述：设置请求转发的目标地址</p>
+<p>参数：<strong>proxy_pass</strong> url</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">proxy_pass http://some.example.com/some/path/;</div></pre></td></tr></table></figure>
+<h4 id="alias" class="article-heading"><a href="#alias" class="headerlink" title="* alias"></a>* alias<a class="article-anchor" href="#alias" aria-hidden="true"></a></h4><p>描述：将对应的<code>location</code>映射到本地目录</p>
+<p>参数：<strong>alias</strong> path</p>
+<p>例子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> /Users/root/some/path/;</div></pre></td></tr></table></figure>
+<h4 id="root" class="article-heading"><a href="#root" class="headerlink" title="* root"></a>* root<a class="article-anchor" href="#root" aria-hidden="true"></a></h4><p>描述：将对应的<code>location</code>映射到本地目录时的默认文件，默认文件名为<code>index.html</code></p>
+<p>参数：<strong>root</strong> file_name</p>
+<p><em>例子</em>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">root app.html;</div></pre></td></tr></table></figure>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2017-09-15T13:21:42.000Z" itemprop="dateModified">Last updated: 2017-09-15</time>
+                
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=hexoio" id="_carbonads_js"></script> -->
+              <strong class="sidebar-title">Contents</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#指令"><span class="toc-text">指令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#set"><span class="toc-text">set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代理请求相关指令"><span class="toc-text">代理请求相关指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#proxy-set-header"><span class="toc-text">* proxy_set_header</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#proxy-hide-header"><span class="toc-text">* proxy_hide_header</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#proxy-set-cookie"><span class="toc-text">* proxy_set_cookie</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#proxy-hide-cookie"><span class="toc-text">* proxy_hide_cookie</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代理响应相关指令"><span class="toc-text">代理响应相关指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#set-header"><span class="toc-text">* set_header</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hide-header"><span class="toc-text">* hide_header</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set-cookie"><span class="toc-text">* set_cookie</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hide-cookie"><span class="toc-text">* hide_cookie</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#send-file"><span class="toc-text">* send_file</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#echo"><span class="toc-text">* echo</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#domain内部指令"><span class="toc-text">domain内部指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ssl-certificate"><span class="toc-text">* ssl_certificate</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ssl-certificate-key"><span class="toc-text">* ssl_certificate_key</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#location内部指令"><span class="toc-text">location内部指令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#proxy-pass"><span class="toc-text">* proxy_pass</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#alias"><span class="toc-text">* alias</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#root"><span class="toc-text">* root</span></a></li></ol></li></ol></li></ol>
+              <a href="#" id="article-toc-top">Back to Top</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">Rewrite</strong><a href="scope.html" class="sidebar-link">Scope</a><a href="directive.html" class="sidebar-link current">Directive</a><a href="built_in_variable.html" class="sidebar-link current">Built-in Variables</a>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2017 <a href="https://github.com/hiproxy/hiproxy/graphs/contributors" target="_blank">hiproxy</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/zhangdaiying" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/hiproxy/hiproxy" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/" class="mobile-nav-link">Home</a><a href="/get_started/" class="mobile-nav-link">Get Started</a><a href="/configuration/" class="mobile-nav-link">Configuration</a><a href="/rewrite/" class="mobile-nav-link">Rewrite</a><a href="/api/" class="mobile-nav-link">API</a><a href="/developers/" class="mobile-nav-link">Developers</a><a href="/faqs/" class="mobile-nav-link">FAQs</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/hiproxy/hiproxy" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">Rewrite</strong><a href="scope.html" class="mobile-nav-link">Scope</a><a href="directive.html" class="mobile-nav-link current">Directive</a><a href="built_in_variable.html" class="mobile-nav-link current">Built-in Variables</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>English</span></span>
+    <select id="mobile-lang-select" data-canonical="rewrite/directive.html">
+      
+        <option value="zh-cn">简体中文</option>
+      
+        <option value="en" selected>English</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia -->
+
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+en: 
+  Home: /
+  Get Started: /get_started/
+  Configuration: /configuration/
+  Rewrite: /rewrite/
+  API: /api/  
+  Developers: /developers/
+  FAQs: /faqs/
+zh-cn:
+  首页: /
+  快速开始:  /get_started/
+  配置: /configuration/
+  Rewrite: /rewrite/
+  开发者: /developers/
+  API: /api/
+  常见问题: /faqs/

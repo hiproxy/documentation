@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <title>CLI命令配置 | hiproxy</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://hiproxy.org/zh-cn/developers/cli_command.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="http://hiproxy.org/zh-cn/developers/cli_command.html">
+    
+      <link rel="alternative" hreflang="en" href="http://hiproxy.org/developers/cli_command.html">
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/icons/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
+  <link rel="apple-touch-icon" sizes="58x58" href="/icons/android-touch-icon.png" />
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="hiproxy">
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103231920-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/zh-cn/" id="logo">hiproxy</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/zh-cn/" class="main-nav-link">首页</a><a href="/zh-cn/get_started/" class="main-nav-link">快速开始</a><a href="/zh-cn/configuration/" class="main-nav-link">配置</a><a href="/zh-cn/rewrite/" class="main-nav-link">Rewrite</a><a href="/zh-cn/developers/" class="main-nav-link">开发者</a><a href="/zh-cn/api/" class="main-nav-link">API</a><a href="/zh-cn/faqs/" class="main-nav-link">常见问题</a>
+      <a href="https://github.com/hiproxy/hiproxy" class="main-nav-link"><i class="fa fa-github-alt"></i></a>
+      <div id="search-input-wrap">
+        <div id="search-input-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <input type="search" id="search-input" placeholder="Search...">
+      </div>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></label>
+      <select id="lang-select" data-canonical="developers/cli_command.html">
+        
+          <option value="zh-cn" selected>简体中文</option>
+        
+          <option value="en">English</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">CLI命令配置</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/zh-cn/developers/cli_command.md" class="article-edit-link" title="改进本文"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <blockquote>
+<p>如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！</p>
+<p>If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!</p>
+</blockquote>
+<h2 id="简介" class="article-heading"><a href="#简介" class="headerlink" title="简介"></a>简介<a class="article-anchor" href="#简介" aria-hidden="true"></a></h2><p>hiproxy的CLI提供了<code>start</code>/<code>stop</code>/<code>state</code>/<code>open</code>等命令，如果这些命令不能满足你的需求，也可以为hiproxy添加新的命令。</p>
+<p>新增的命令需要配置的内容为：<code>命令名称</code>、<code>描述</code>、<code>使用方法</code>、<code>处理函数</code>和<code>命令选项参数</code>。对应的字段为：</p>
+<ul>
+<li><strong>命令名称（command）</strong>：<code>&lt;String&gt;</code>，比如：<code>&#39;hello&#39;</code>。</li>
+<li><strong>描述信息（describe）</strong>：<code>&lt;String&gt;</code>，简单介绍命令的作用以及其他的信息，比如：<code>&#39;A test command that say hello to you.&#39;</code>。</li>
+<li><strong>使用方法（usage）</strong>：<code>&lt;String&gt;</code>，命令的使用方法提示信息，比如：<code>&#39;hello [--name &lt;name&gt;] [-xodD]&#39;</code>。</li>
+<li><strong>处理函数（fn）</strong>：<code>&lt;Function&gt;</code>，执行命令时，调用的函数。函数调用时<code>this</code>值为命令行参数解析后的对象。</li>
+<li><strong>命令选项（option）</strong>：<code>&lt;Object&gt;</code>，命令对应的选项，<code>key:value</code>形式。可以参考<a href="https://github.com/hemsl/hemsl" target="_blank" rel="external">https://github.com/hemsl/hemsl</a>。</li>
+</ul>
+<h2 id="示例" class="article-heading"><a href="#示例" class="headerlink" title="示例"></a>示例<a class="article-anchor" href="#示例" aria-hidden="true"></a></h2><p>一个完整的命令示例如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  command: <span class="string">'hello'</span>,</div><div class="line">  describe: <span class="string">'A test command that say hello to you.'</span>,</div><div class="line">  usage: <span class="string">'hello [--name &lt;name&gt;] [-xodD]'</span>,</div><div class="line">  fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> cliArgs = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">if</span> (cliArgs.name ) &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'your name is'</span>, cliArgs.name.green);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (cliArgs.age ) &#123;</div><div class="line">      <span class="built_in">console</span>.log(<span class="string">'your are'</span>, cliArgs.age.green, <span class="string">'years old'</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  options: &#123;</div><div class="line">    <span class="string">'name &lt;name&gt;'</span>: &#123;</div><div class="line">      alias: <span class="string">'n'</span>,</div><div class="line">      describe: <span class="string">'your name'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="string">'age'</span>: &#123;</div><div class="line">      alias: <span class="string">'a'</span>,</div><div class="line">      describe: <span class="string">'your age'</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2017-09-15T13:21:42.000Z" itemprop="dateModified">上次更新：2017-09-15</time>
+                
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=hexoio" id="_carbonads_js"></script> -->
+              <strong class="sidebar-title">目录</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例"><span class="toc-text">示例</span></a></li></ol>
+              <a href="#" id="article-toc-top">回到顶部</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">开发者</strong><a href="plugin.html" class="sidebar-link">插件机制</a><a href="cli_command.html" class="sidebar-link current">扩展CLI命令</a><a href="directive.html" class="sidebar-link current">扩展指令</a><a href="route.html" class="sidebar-link current">扩展页面</a>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2017 <a href="https://github.com/hiproxy/hiproxy/graphs/contributors" target="_blank">hiproxy</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/zhangdaiying" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/hiproxy/hiproxy" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/zh-cn/" class="mobile-nav-link">首页</a><a href="/zh-cn/get_started/" class="mobile-nav-link">快速开始</a><a href="/zh-cn/configuration/" class="mobile-nav-link">配置</a><a href="/zh-cn/rewrite/" class="mobile-nav-link">Rewrite</a><a href="/zh-cn/developers/" class="mobile-nav-link">开发者</a><a href="/zh-cn/api/" class="mobile-nav-link">API</a><a href="/zh-cn/faqs/" class="mobile-nav-link">常见问题</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/hiproxy/hiproxy" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">开发者</strong><a href="plugin.html" class="mobile-nav-link">插件机制</a><a href="cli_command.html" class="mobile-nav-link current">扩展CLI命令</a><a href="directive.html" class="mobile-nav-link current">扩展指令</a><a href="route.html" class="mobile-nav-link current">扩展页面</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>简体中文</span></span>
+    <select id="mobile-lang-select" data-canonical="developers/cli_command.html">
+      
+        <option value="zh-cn" selected>简体中文</option>
+      
+        <option value="en">English</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia -->
+
+
+</body>
+</html>

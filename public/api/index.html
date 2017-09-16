@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Node.js API | hiproxy</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://hiproxy.org/api/index.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="http://hiproxy.org/zh-cn/api/index.html">
+    
+      <link rel="alternative" hreflang="en" href="http://hiproxy.org/api/index.html">
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/icons/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
+  <link rel="apple-touch-icon" sizes="58x58" href="/icons/android-touch-icon.png" />
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="hiproxy">
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103231920-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">hiproxy</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/" class="main-nav-link">Home</a><a href="/get_started/" class="main-nav-link">Get Started</a><a href="/configuration/" class="main-nav-link">Configuration</a><a href="/rewrite/" class="main-nav-link">Rewrite</a><a href="/api/" class="main-nav-link">API</a><a href="/developers/" class="main-nav-link">Developers</a><a href="/faqs/" class="main-nav-link">FAQs</a>
+      <a href="https://github.com/hiproxy/hiproxy" class="main-nav-link"><i class="fa fa-github-alt"></i></a>
+      <div id="search-input-wrap">
+        <div id="search-input-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <input type="search" id="search-input" placeholder="Search...">
+      </div>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>English</span></label>
+      <select id="lang-select" data-canonical="api/index.html">
+        
+          <option value="zh-cn">简体中文</option>
+        
+          <option value="en" selected>English</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Node.js API</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/api/index.md" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <blockquote>
+<p>如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！</p>
+<p>If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!</p>
+</blockquote>
+<p><a name="ProxyServer"></a></p>
+<h2 id="ProxyServer-⇐-EventEmitter" class="article-heading"><a href="#ProxyServer-⇐-EventEmitter" class="headerlink" title="ProxyServer ⇐ EventEmitter"></a>ProxyServer ⇐ <code>EventEmitter</code><a class="article-anchor" href="#ProxyServer-⇐-EventEmitter" aria-hidden="true"></a></h2><p><strong>Kind</strong>: global class<br><strong>Extends</strong>: <code>EventEmitter</code>  </p>
+<ul>
+<li><a href="#ProxyServer">ProxyServer</a> ⇐ <code>EventEmitter</code><ul>
+<li><a href="#new_ProxyServer_new">new ProxyServer(httpPort, httpsPort)</a></li>
+<li><a href="#ProxyServer+start">.start(httpPort, httpsPort)</a> ⇒ <code>Promise</code></li>
+<li><a href="#ProxyServer+stop">.stop()</a> ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a></li>
+<li><a href="#ProxyServer+restart">.restart()</a> ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a></li>
+<li><a href="#ProxyServer+addHostsFile">.addHostsFile(filePath)</a> ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a></li>
+<li><a href="#ProxyServer+addRewriteFile">.addRewriteFile(filePath)</a> ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a></li>
+<li><a href="#ProxyServer+openBrowser">.openBrowser(browserName, url, [usePacProxy])</a> ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a></li>
+<li><a href="#ProxyServer+findConfigFiels">.findConfigFiels([dir])</a> ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a></li>
+</ul>
+</li>
+</ul>
+<p><a name="new_ProxyServer_new"></a></p>
+<h3 id="new-ProxyServer-httpPort-httpsPort" class="article-heading"><a href="#new-ProxyServer-httpPort-httpsPort" class="headerlink" title="new ProxyServer(httpPort, httpsPort)"></a>new ProxyServer(httpPort, httpsPort)<a class="article-anchor" href="#new-ProxyServer-httpPort-httpsPort" aria-hidden="true"></a></h3><p>hiproxy代理服务器</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>httpPort</td>
+<td><code>Number</code></td>
+<td>http代理服务端口号</td>
+</tr>
+<tr>
+<td>httpsPort</td>
+<td><code>Number</code></td>
+<td>https代理服务器端口号</td>
+</tr>
+</tbody>
+</table>
+<p><a name="ProxyServer+start"></a></p>
+<h3 id="proxyServer-start-config-⇒-Promise" class="article-heading"><a href="#proxyServer-start-config-⇒-Promise" class="headerlink" title="proxyServer.start([config]) ⇒ Promise"></a>proxyServer.start([config]) ⇒ <code>Promise</code><a class="article-anchor" href="#proxyServer-start-config-⇒-Promise" aria-hidden="true"></a></h3><p>启动代理服务</p>
+<p><strong>Kind</strong>: instance method of <a href="#ProxyServer"><code>ProxyServer</code></a><br><strong>Access</strong>: public  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>config</td>
+<td><code>Object</code></td>
+<td>配置字段</td>
+</tr>
+</tbody>
+</table>
+<p><a name="ProxyServer+stop"></a></p>
+<h3 id="proxyServer-stop-⇒-ProxyServer" class="article-heading"><a href="#proxyServer-stop-⇒-ProxyServer" class="headerlink" title="proxyServer.stop() ⇒ ProxyServer"></a>proxyServer.stop() ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a><a class="article-anchor" href="#proxyServer-stop-⇒-ProxyServer" aria-hidden="true"></a></h3><p>停止代理服务</p>
+<p><strong>Kind</strong>: instance method of <a href="#ProxyServer"><code>ProxyServer</code></a><br><strong>Access</strong>: public<br><a name="ProxyServer+restart"></a></p>
+<h3 id="proxyServer-restart-⇒-ProxyServer" class="article-heading"><a href="#proxyServer-restart-⇒-ProxyServer" class="headerlink" title="proxyServer.restart() ⇒ ProxyServer"></a>proxyServer.restart() ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a><a class="article-anchor" href="#proxyServer-restart-⇒-ProxyServer" aria-hidden="true"></a></h3><p>重启代理服务</p>
+<p><strong>Kind</strong>: instance method of <a href="#ProxyServer"><code>ProxyServer</code></a><br><strong>Access</strong>: public<br><a name="ProxyServer+addHostsFile"></a></p>
+<h3 id="proxyServer-addHostsFile-filePath-⇒-ProxyServer" class="article-heading"><a href="#proxyServer-addHostsFile-filePath-⇒-ProxyServer" class="headerlink" title="proxyServer.addHostsFile(filePath) ⇒ ProxyServer"></a>proxyServer.addHostsFile(filePath) ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a><a class="article-anchor" href="#proxyServer-addHostsFile-filePath-⇒-ProxyServer" aria-hidden="true"></a></h3><p>添加Hosts文件</p>
+<p><strong>Kind</strong>: instance method of <a href="#ProxyServer"><code>ProxyServer</code></a><br><strong>Access</strong>: public  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filePath</td>
+<td><code>String</code> \</td>
+<td><code>Array</code></td>
+<td><code>hosts</code>文件路径（绝对路径）</td>
+</tr>
+</tbody>
+</table>
+<p><a name="ProxyServer+addRewriteFile"></a></p>
+<h3 id="proxyServer-addRewriteFile-filePath-⇒-ProxyServer" class="article-heading"><a href="#proxyServer-addRewriteFile-filePath-⇒-ProxyServer" class="headerlink" title="proxyServer.addRewriteFile(filePath) ⇒ ProxyServer"></a>proxyServer.addRewriteFile(filePath) ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a><a class="article-anchor" href="#proxyServer-addRewriteFile-filePath-⇒-ProxyServer" aria-hidden="true"></a></h3><p>添加rewrite文件</p>
+<p><strong>Kind</strong>: instance method of <a href="#ProxyServer"><code>ProxyServer</code></a><br><strong>Access</strong>: public  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filePath</td>
+<td><code>String</code> \</td>
+<td><code>Array</code></td>
+<td><code>rewrite</code>文件路径（绝对路径）</td>
+</tr>
+</tbody>
+</table>
+<p><a name="ProxyServer+openBrowser"></a></p>
+<h3 id="proxyServer-openBrowser-browserName-url-usePacProxy-⇒-ProxyServer" class="article-heading"><a href="#proxyServer-openBrowser-browserName-url-usePacProxy-⇒-ProxyServer" class="headerlink" title="proxyServer.openBrowser(browserName, url, [usePacProxy]) ⇒ ProxyServer"></a>proxyServer.openBrowser(browserName, url, [usePacProxy]) ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a><a class="article-anchor" href="#proxyServer-openBrowser-browserName-url-usePacProxy-⇒-ProxyServer" aria-hidden="true"></a></h3><p>打开浏览器窗口</p>
+<p><strong>Kind</strong>: instance method of <a href="#ProxyServer"><code>ProxyServer</code></a><br><strong>Access</strong>: public  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>browserName</td>
+<td><code>String</code></td>
+<td></td>
+<td>浏览器名称</td>
+</tr>
+<tr>
+<td>url</td>
+<td><code>String</code></td>
+<td></td>
+<td>要打开的url</td>
+</tr>
+<tr>
+<td>[usePacProxy]</td>
+<td><code>Boolean</code></td>
+<td><code>false</code></td>
+<td>是否使用自动代理</td>
+</tr>
+</tbody>
+</table>
+<p><a name="ProxyServer+findConfigFiels"></a></p>
+<h3 id="proxyServer-findConfigFiles-dir-⇒-ProxyServer" class="article-heading"><a href="#proxyServer-findConfigFiles-dir-⇒-ProxyServer" class="headerlink" title="proxyServer.findConfigFiles([dir]) ⇒ ProxyServer"></a>proxyServer.findConfigFiles([dir]) ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a><a class="article-anchor" href="#proxyServer-findConfigFiles-dir-⇒-ProxyServer" aria-hidden="true"></a></h3><p>在指定工作空间（目录）下查找配置文件<br>hiproxy会在指定的空间下所有一级目录下查找配置文件</p>
+<p><strong>Kind</strong>: instance method of <a href="#ProxyServer"><code>ProxyServer</code></a><br><strong>Access</strong>: public  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[dir]</td>
+<td><code>String</code></td>
+<td><code>process.cwd()</code></td>
+<td>工作空间（目录）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="proxyServer-enableConfFile-confFileType-filePath-⇒-ProxyServer" class="article-heading"><a href="#proxyServer-enableConfFile-confFileType-filePath-⇒-ProxyServer" class="headerlink" title="proxyServer.enableConfFile(confFileType, filePath) ⇒ ProxyServer"></a>proxyServer.enableConfFile(confFileType, filePath) ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a><a class="article-anchor" href="#proxyServer-enableConfFile-confFileType-filePath-⇒-ProxyServer" aria-hidden="true"></a></h3><p>启用指定配置文件</p>
+<p><strong>Kind</strong>: instance method of <a href="#ProxyServer"><code>ProxyServer</code></a><br><strong>Access</strong>: public  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>confFileType</td>
+<td><code>String</code></td>
+<td></td>
+<td>文件类型(host/rewrite)</td>
+</tr>
+<tr>
+<td>filePath</td>
+<td><code>String</code> \</td>
+<td><code>Array</code></td>
+<td></td>
+<td>修改的文件路径</td>
+</tr>
+</tbody>
+</table>
+<h3 id="proxyServer-disableConfFile-confFileType-filePath-⇒-ProxyServer" class="article-heading"><a href="#proxyServer-disableConfFile-confFileType-filePath-⇒-ProxyServer" class="headerlink" title="proxyServer.disableConfFile(confFileType, filePath) ⇒ ProxyServer"></a>proxyServer.disableConfFile(confFileType, filePath) ⇒ <a href="#ProxyServer"><code>ProxyServer</code></a><a class="article-anchor" href="#proxyServer-disableConfFile-confFileType-filePath-⇒-ProxyServer" aria-hidden="true"></a></h3><p>禁用指定配置文件</p>
+<p><strong>Kind</strong>: instance method of <a href="#ProxyServer"><code>ProxyServer</code></a><br><strong>Access</strong>: public  </p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>confFileType</td>
+<td><code>String</code></td>
+<td></td>
+<td>文件类型(host/rewrite)</td>
+</tr>
+<tr>
+<td>filePath</td>
+<td><code>String</code> \</td>
+<td><code>Array</code></td>
+<td></td>
+<td>修改的文件路径</td>
+</tr>
+</tbody>
+</table>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2017-09-15T13:21:42.000Z" itemprop="dateModified">Last updated: 2017-09-15</time>
+                
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=hexoio" id="_carbonads_js"></script> -->
+              <strong class="sidebar-title">Contents</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ProxyServer-⇐-EventEmitter"><span class="toc-text">ProxyServer ⇐ EventEmitter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#new-ProxyServer-httpPort-httpsPort"><span class="toc-text">new ProxyServer(httpPort, httpsPort)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proxyServer-start-config-⇒-Promise"><span class="toc-text">proxyServer.start([config]) ⇒ Promise</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proxyServer-stop-⇒-ProxyServer"><span class="toc-text">proxyServer.stop() ⇒ ProxyServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proxyServer-restart-⇒-ProxyServer"><span class="toc-text">proxyServer.restart() ⇒ ProxyServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proxyServer-addHostsFile-filePath-⇒-ProxyServer"><span class="toc-text">proxyServer.addHostsFile(filePath) ⇒ ProxyServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proxyServer-addRewriteFile-filePath-⇒-ProxyServer"><span class="toc-text">proxyServer.addRewriteFile(filePath) ⇒ ProxyServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proxyServer-openBrowser-browserName-url-usePacProxy-⇒-ProxyServer"><span class="toc-text">proxyServer.openBrowser(browserName, url, [usePacProxy]) ⇒ ProxyServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proxyServer-findConfigFiles-dir-⇒-ProxyServer"><span class="toc-text">proxyServer.findConfigFiles([dir]) ⇒ ProxyServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proxyServer-enableConfFile-confFileType-filePath-⇒-ProxyServer"><span class="toc-text">proxyServer.enableConfFile(confFileType, filePath) ⇒ ProxyServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proxyServer-disableConfFile-confFileType-filePath-⇒-ProxyServer"><span class="toc-text">proxyServer.disableConfFile(confFileType, filePath) ⇒ ProxyServer</span></a></li></ol></li></ol>
+              <a href="#" id="article-toc-top">Back to Top</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">Node.js API</strong><a href="api.html" class="sidebar-link">API</a><a href="events.html" class="sidebar-link">Events</a>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2017 <a href="https://github.com/hiproxy/hiproxy/graphs/contributors" target="_blank">hiproxy</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/zhangdaiying" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/hiproxy/hiproxy" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/" class="mobile-nav-link">Home</a><a href="/get_started/" class="mobile-nav-link">Get Started</a><a href="/configuration/" class="mobile-nav-link">Configuration</a><a href="/rewrite/" class="mobile-nav-link">Rewrite</a><a href="/api/" class="mobile-nav-link">API</a><a href="/developers/" class="mobile-nav-link">Developers</a><a href="/faqs/" class="mobile-nav-link">FAQs</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/hiproxy/hiproxy" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">Node.js API</strong><a href="api.html" class="mobile-nav-link">API</a><a href="events.html" class="mobile-nav-link">Events</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>English</span></span>
+    <select id="mobile-lang-select" data-canonical="api/index.html">
+      
+        <option value="zh-cn">简体中文</option>
+      
+        <option value="en" selected>English</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia -->
+
+
+</body>
+</html>

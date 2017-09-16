@@ -1,0 +1,38 @@
+title: hiproxy
+subtitle: "A lightweight and powerful proxy tool for front-end developer based on Node.js."
+description: "hiproxy is a lightweight proxy tool for Front-End developers based on Node.js that supports an NGINX-like configuration."
+author: hiproxy
+language: en
+timezone: UTC
+
+url: http://hiproxy.org/
+root: /
+permalink: :title/
+archive_dir: news
+code_dir: downloads/code
+new_post_name: :title.md # File name of new posts
+post_asset_folder: false
+per_page: 0
+default_layout: page
+
+theme: navy
+deploy:
+  type: git
+  repo: https://github.com/hiproxy/documentation.git
+  branch: gh-pages
+
+highlight:
+  enable: true
+  line_number: true
+
+# disqus_shortname: hiproxy
+google_analytics: UA-103231920-1
+# algolia:
+#   en:
+#     api_key: 
+#     index_name: hiproxy
+#   zh-cn:
+#     api_key: 
+#     index_name: hiproxy_zh-cn
+twitter: zhangdaiying
+github: hiproxy/hiproxy

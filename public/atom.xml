@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>hiproxy</title>
+  
+  <subtitle>A lightweight and powerful proxy tool for front-end developer based on Node.js.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://hiproxy.org/"/>
+  <updated>2017-09-15T13:21:42.000Z</updated>
+  <id>http://hiproxy.org/</id>
+  
+  <author>
+    <name>hiproxy</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://hiproxy.org/2014-07-13-test/"/>
+    <id>http://hiproxy.org/2014-07-13-test/</id>
+    <published>2017-09-15T13:21:42.000Z</published>
+    <updated>2017-09-15T13:21:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Test</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Test&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Rewrite built in variables | hiproxy</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://hiproxy.org/rewrite/built_in_variable.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="http://hiproxy.org/zh-cn/rewrite/built_in_variable.html">
+    
+      <link rel="alternative" hreflang="en" href="http://hiproxy.org/rewrite/built_in_variable.html">
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/icons/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
+  <link rel="apple-touch-icon" sizes="58x58" href="/icons/android-touch-icon.png" />
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="hiproxy">
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103231920-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">hiproxy</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/" class="main-nav-link">Home</a><a href="/get_started/" class="main-nav-link">Get Started</a><a href="/configuration/" class="main-nav-link">Configuration</a><a href="/rewrite/" class="main-nav-link">Rewrite</a><a href="/api/" class="main-nav-link">API</a><a href="/developers/" class="main-nav-link">Developers</a><a href="/faqs/" class="main-nav-link">FAQs</a>
+      <a href="https://github.com/hiproxy/hiproxy" class="main-nav-link"><i class="fa fa-github-alt"></i></a>
+      <div id="search-input-wrap">
+        <div id="search-input-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <input type="search" id="search-input" placeholder="Search...">
+      </div>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>English</span></label>
+      <select id="lang-select" data-canonical="rewrite/built_in_variable.html">
+        
+          <option value="zh-cn">简体中文</option>
+        
+          <option value="en" selected>English</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Rewrite built in variables</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/rewrite/built_in_variable.md" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <blockquote>
+<p>如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！</p>
+<p>If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!</p>
+</blockquote>
+<p>hiproxy的rewrite规则配置文件中，我们可以自己定义全局变量（在全局作用域中使用<code>set $var value</code>），也可以在其他作用域中定义变量；</p>
+<p>hiproxy内置了一些变量，这些内置变量可以在相应的作用域中直接使用，不需要去定义并赋值，而且这些内置变量也不能被用户重新定义覆盖。</p>
+<h2 id="全局变量" class="article-heading"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量<a class="article-anchor" href="#全局变量" aria-hidden="true"></a></h2><p>这些全局变量，在配置文件的<strong>任何地方都可以使用</strong>。</p>
+<blockquote>
+<p>提示：hiproxy暂时没有内置的全局变量。将来会添加！</p>
+</blockquote>
+<h2 id="location块级变量" class="article-heading"><a href="#location块级变量" class="headerlink" title="location块级变量"></a>location块级变量<a class="article-anchor" href="#location块级变量" aria-hidden="true"></a></h2><p>这些变量，只能在<code>location</code>块中使用，这些变量主要是存储与请求相关的一些信息，比如请求的参数（<code>$query_string</code>）、Cookie（<code>$cookie_name</code>）和host（<code>$host</code>)等。现在支持的所有内置变量：</p>
+<h3 id="host" class="article-heading"><a href="#host" class="headerlink" title="$host"></a>$host<a class="article-anchor" href="#host" aria-hidden="true"></a></h3><p>当前请求的URL对应的<code>host</code>或者请求头部的<code>Host</code>字段。</p>
+<h3 id="hostname" class="article-heading"><a href="#hostname" class="headerlink" title="$hostname"></a>$hostname<a class="article-anchor" href="#hostname" aria-hidden="true"></a></h3><p>当前请求的URL对应的<code>hostname</code>或者请求头部的<code>Host</code>字段对应的<code>hostname</code>。</p>
+<h3 id="server-port" class="article-heading"><a href="#server-port" class="headerlink" title="$server_port"></a>$server_port<a class="article-anchor" href="#server-port" aria-hidden="true"></a></h3><p>请求的服务端口号，默认<code>80</code>。</p>
+<h3 id="search" class="article-heading"><a href="#search" class="headerlink" title="$search"></a>$search<a class="article-anchor" href="#search" aria-hidden="true"></a></h3><p>请求的参数字符串（包括<code>?</code>），比如<code>?from=app&amp;v=19482848253</code>。</p>
+<h3 id="query-string" class="article-heading"><a href="#query-string" class="headerlink" title="$query_string"></a>$query_string<a class="article-anchor" href="#query-string" aria-hidden="true"></a></h3><p>请求的参数字符串（<strong>不包括<code>?</code></strong>），比如<code>from=app&amp;v=19482848253</code>。</p>
+<h3 id="scheme" class="article-heading"><a href="#scheme" class="headerlink" title="$scheme"></a>$scheme<a class="article-anchor" href="#scheme" aria-hidden="true"></a></h3><p>请求的协议，<code>http</code>或者<code>https</code>。</p>
+<h3 id="request-uri" class="article-heading"><a href="#request-uri" class="headerlink" title="$request_uri"></a>$request_uri<a class="article-anchor" href="#request-uri" aria-hidden="true"></a></h3><p>请求的完整地址，比如<code>http://hiproxy.org:8081/docs/index.html?from=google&amp;v=_1847295727524#get-started</code>。</p>
+<h3 id="path" class="article-heading"><a href="#path" class="headerlink" title="$path"></a>$path<a class="article-anchor" href="#path" aria-hidden="true"></a></h3><p>请求的<code>path</code>（包括参数），比如<code>/docs/index.html?from=google&amp;v=_1847295727524#get-started</code>。</p>
+<h3 id="path-name" class="article-heading"><a href="#path-name" class="headerlink" title="$path_name"></a>$path_name<a class="article-anchor" href="#path-name" aria-hidden="true"></a></h3><p>请求的<code>path_name</code>（不包括参数），比如<code>/docs/index.html</code>。</p>
+<h3 id="base-name" class="article-heading"><a href="#base-name" class="headerlink" title="$base_name"></a>$base_name<a class="article-anchor" href="#base-name" aria-hidden="true"></a></h3><p>请求path的最后一部分，比如path为<code>/docs/index.html</code>，则$base_name为<code>index.html</code>。</p>
+<h3 id="dir-name" class="article-heading"><a href="#dir-name" class="headerlink" title="$dir_name"></a>$dir_name<a class="article-anchor" href="#dir-name" aria-hidden="true"></a></h3><p>请求path的目录名称，比如path为<code>/docs/index.html</code>，则$dir_name为<code>/docs/</code>。</p>
+<h3 id="hash" class="article-heading"><a href="#hash" class="headerlink" title="$hash"></a>$hash<a class="article-anchor" href="#hash" aria-hidden="true"></a></h3><p>请求url中的<code>hash</code>(包括<code>#</code>)，比如’#get-started’。</p>
+<h3 id="hash-value" class="article-heading"><a href="#hash-value" class="headerlink" title="$hash_value"></a>$hash_value<a class="article-anchor" href="#hash-value" aria-hidden="true"></a></h3><p>请求url中的<code>hash</code>值(不包括<code>#</code>)，比如’get-started’。</p>
+<h3 id="uri" class="article-heading"><a href="#uri" class="headerlink" title="$uri"></a>$uri<a class="article-anchor" href="#uri" aria-hidden="true"></a></h3><p>同<code>$request_uri</code>。</p>
+<h3 id="cookie-name" class="article-heading"><a href="#cookie-name" class="headerlink" title="$cookie_name"></a>$cookie_<em>name</em><a class="article-anchor" href="#cookie-name" aria-hidden="true"></a></h3><p><code>cookie</code>的值，<code>name</code>表示字段名称，这个名称中的大写字母都改成了小写，<code>-</code>替换成了<code>_</code>。比如<code>$cookie_userId</code>表示<code>cookie</code>中<code>useId</code>的值。</p>
+<h3 id="http-name" class="article-heading"><a href="#http-name" class="headerlink" title="$http_name"></a>$http_<em>name</em><a class="article-anchor" href="#http-name" aria-hidden="true"></a></h3><p>请求头（request）中的字段值，<code>name</code>表示字段名称，这个名称中的大写字母都改成了小写，<code>-</code>替换成了<code>_</code>。比如请求头信息中包含<code>User-Agent: user agent</code>，可以使用变量<code>$http_user_agent</code>来获取这个值。</p>
+<h3 id="arg-name" class="article-heading"><a href="#arg-name" class="headerlink" title="$arg_name"></a>$arg_<em>name</em><a class="article-anchor" href="#arg-name" aria-hidden="true"></a></h3><p>请求参数的值，<code>name</code>表示字段名称，这个名称中的大写字母都改成了小写，<code>-</code>替换成了<code>_</code>。比如请求参数为<code>?from=google&amp;v=_1847295727524</code>，可以通过<code>$arg_from</code>来获取<code>from</code>的值。</p>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2017-09-15T13:21:42.000Z" itemprop="dateModified">Last updated: 2017-09-15</time>
+                
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=hexoio" id="_carbonads_js"></script> -->
+              <strong class="sidebar-title">Contents</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#全局变量"><span class="toc-text">全局变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#location块级变量"><span class="toc-text">location块级变量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#host"><span class="toc-text">$host</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hostname"><span class="toc-text">$hostname</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#server-port"><span class="toc-text">$server_port</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#search"><span class="toc-text">$search</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#query-string"><span class="toc-text">$query_string</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#scheme"><span class="toc-text">$scheme</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#request-uri"><span class="toc-text">$request_uri</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#path"><span class="toc-text">$path</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#path-name"><span class="toc-text">$path_name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#base-name"><span class="toc-text">$base_name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dir-name"><span class="toc-text">$dir_name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hash"><span class="toc-text">$hash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-value"><span class="toc-text">$hash_value</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uri"><span class="toc-text">$uri</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie-name"><span class="toc-text">$cookie_name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#http-name"><span class="toc-text">$http_name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#arg-name"><span class="toc-text">$arg_name</span></a></li></ol></li></ol>
+              <a href="#" id="article-toc-top">Back to Top</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">Rewrite</strong><a href="scope.html" class="sidebar-link">Scope</a><a href="directive.html" class="sidebar-link">Directive</a><a href="built_in_variable.html" class="sidebar-link current">Built-in Variables</a>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2017 <a href="https://github.com/hiproxy/hiproxy/graphs/contributors" target="_blank">hiproxy</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/zhangdaiying" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/hiproxy/hiproxy" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/" class="mobile-nav-link">Home</a><a href="/get_started/" class="mobile-nav-link">Get Started</a><a href="/configuration/" class="mobile-nav-link">Configuration</a><a href="/rewrite/" class="mobile-nav-link">Rewrite</a><a href="/api/" class="mobile-nav-link">API</a><a href="/developers/" class="mobile-nav-link">Developers</a><a href="/faqs/" class="mobile-nav-link">FAQs</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/hiproxy/hiproxy" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">Rewrite</strong><a href="scope.html" class="mobile-nav-link">Scope</a><a href="directive.html" class="mobile-nav-link">Directive</a><a href="built_in_variable.html" class="mobile-nav-link current">Built-in Variables</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>English</span></span>
+    <select id="mobile-lang-select" data-canonical="rewrite/built_in_variable.html">
+      
+        <option value="zh-cn">简体中文</option>
+      
+        <option value="en" selected>English</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia -->
+
+
+</body>
+</html>

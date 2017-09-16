@@ -1,0 +1,64 @@
+en:
+  get_started:
+    Get Started:
+      Installation: installation.html
+      Run Example: run_example.html
+      Applied To Existing Projects: applied_to_existing_projects.html
+      CLI Options: cli_options.html
+  configuration:
+    Configuration:
+      Configuration file lookup: find_conf.html
+      hosts: hosts.html
+      rewrite: rewrite.html
+      SSL/TLS Certificate: ssl_certificate.html
+  rewrite:
+    Rewrite:
+      Scope: scope.html
+      Directive: directive.html
+      Built-in Variables: built_in_variable.html
+  api:
+    Node.js API:
+      API: api.html
+      Events: events.html
+  developers:
+    Developers:
+      Plugin: plugin.html
+      Extend Command: cli_command.html
+      Extend Directive: directive.html
+      Extend Route: route.html
+  faqs:
+    FAQs:
+      FAQs: faqs.html
+
+zh-cn:
+  get_started:
+    快速开始:
+      安装: installation.html
+      运行示例: run_example.html
+      现有项目: applied_to_existing_projects.html
+      CLI选项: cli_options.html
+  configuration:
+    配置:
+      简介: introduction.html
+      配置文件查找: find_conf.html
+      hosts: hosts.html
+      rewrite: rewrite.html
+      SSL/TLS证书配置: ssl_certificate.html
+  rewrite:
+    Rewrite:
+      作用域: scope.html
+      内置指令: directive.html
+      内置变量: built_in_variable.html
+  api:
+    Node.js API:
+      API: api.html
+      事件: events.html
+  developers:
+    开发者:
+      插件机制: plugin.html
+      扩展CLI命令: cli_command.html
+      扩展指令: directive.html
+      扩展页面: route.html
+  faqs:
+    常见问题:
+      FAQs: faqs.html

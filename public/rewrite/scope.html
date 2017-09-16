@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Rewrite Context | hiproxy</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://hiproxy.org/rewrite/scope.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="http://hiproxy.org/zh-cn/rewrite/scope.html">
+    
+      <link rel="alternative" hreflang="en" href="http://hiproxy.org/rewrite/scope.html">
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/icons/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
+  <link rel="apple-touch-icon" sizes="58x58" href="/icons/android-touch-icon.png" />
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="hiproxy">
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103231920-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">hiproxy</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/" class="main-nav-link">Home</a><a href="/get_started/" class="main-nav-link">Get Started</a><a href="/configuration/" class="main-nav-link">Configuration</a><a href="/rewrite/" class="main-nav-link">Rewrite</a><a href="/api/" class="main-nav-link">API</a><a href="/developers/" class="main-nav-link">Developers</a><a href="/faqs/" class="main-nav-link">FAQs</a>
+      <a href="https://github.com/hiproxy/hiproxy" class="main-nav-link"><i class="fa fa-github-alt"></i></a>
+      <div id="search-input-wrap">
+        <div id="search-input-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <input type="search" id="search-input" placeholder="Search...">
+      </div>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>English</span></label>
+      <select id="lang-select" data-canonical="rewrite/scope.html">
+        
+          <option value="zh-cn">简体中文</option>
+        
+          <option value="en" selected>English</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Rewrite Context</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/rewrite/scope.md" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <blockquote>
+<p>如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！</p>
+<p>If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!</p>
+</blockquote>
+<h2 id="代码块" class="article-heading"><a href="#代码块" class="headerlink" title="代码块"></a>代码块<a class="article-anchor" href="#代码块" aria-hidden="true"></a></h2><p>hiproxy的代码块，分为三类：</p>
+<ul>
+<li><strong>全局块</strong>：所有的配置文件中不在其他块的代码，都在全局块中；</li>
+<li><strong>domain块</strong>：位于全局块中；</li>
+<li><strong>location块</strong>：位于domain块中；</li>
+</ul>
+<h2 id="作用域" class="article-heading"><a href="#作用域" class="headerlink" title="作用域"></a>作用域<a class="article-anchor" href="#作用域" aria-hidden="true"></a></h2><p>hiproxy 配置文件中涉及到的作用域有5种：</p>
+<ul>
+<li><strong>全局作用域</strong>：<em>全局块</em>对应的作用域。这里的变量可以在任何地方访问到；</li>
+<li><strong>domain作用域</strong>：<em>domain块</em>对应的作用域。</li>
+<li><strong>location作用域</strong>：<em>location块</em>对应的作用域。</li>
+<li><strong>request作用域</strong>：隐式作用域，不对应具体的代码块，这些作用域中的指令，可以分布在任何代码块中。</li>
+<li><strong>response作用域</strong>：隐式作用域，不对应具体的代码块，这些作用域中的指令，可以分布在任何代码块中。</li>
+</ul>
+<h2 id="代码块层级关系" class="article-heading"><a href="#代码块层级关系" class="headerlink" title="代码块层级关系"></a>代码块层级关系<a class="article-anchor" href="#代码块层级关系" aria-hidden="true"></a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">global</div><div class="line">    |- domain</div><div class="line">        |- location</div><div class="line">        |- location</div><div class="line">        |- ...</div><div class="line">    |- domain</div><div class="line">        |- location</div><div class="line">        |- location</div><div class="line">        |- ...</div></pre></td></tr></table></figure>
+<h2 id="变量查找" class="article-heading"><a href="#变量查找" class="headerlink" title="变量查找"></a>变量查找<a class="article-anchor" href="#变量查找" aria-hidden="true"></a></h2><p>当前作用域中查找变量的规则为：</p>
+<ol>
+<li>如果当前作用域有这个变量，<em>返回</em> 这个变量的值。</li>
+<li>查找上一级作用域，如果上一级作用域中有这个变量，<em>返回</em> 这个变量的值。</li>
+<li>否则，如果上一级作用域是全局作用域，<em>返回</em> 变量名称（包括<code>$</code>符号)。</li>
+<li>重复步骤<em>[2-3]</em>。</li>
+</ol>
+<h2 id="指令执行" class="article-heading"><a href="#指令执行" class="headerlink" title="指令执行"></a>指令执行<a class="article-anchor" href="#指令执行" aria-hidden="true"></a></h2><p>代码块中的指令在对应的时机（request／response）会自动执行，此外，还会执行上一级代码块中的指令，比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">www1.test.com =&gt; &#123;</div><div class="line">    <span class="comment"># 1    </span></div><div class="line">    proxy_set_header Host www.test.com;</div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">        <span class="comment"># 2</span></div><div class="line">        proxy_pass http://52.88.88.88/;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    location /index.html &#123;</div><div class="line">        <span class="comment"># 3</span></div><div class="line">        proxy_pass http://127.0.0.1:8800/girl/view/index.html;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    location ~ /\/(native|gallery|picture|font)\/(.*)/ &#123;</div><div class="line">        <span class="comment"># 4</span></div><div class="line">        proxy_pass http://88.88.88.88/<span class="variable">$1</span>/<span class="variable">$2</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面的配置中，在执行#2、#3和#4处的指令同时，都会执行配置在#1处的指令，也就是说: </p>
+<p><code>/</code>、<code>/index.html</code>和<code>/\/(native|gallery|picture|font)\/(.*)/</code>对应的请求，都会加上请求头部<code>Host</code>，值为<code>www.test.com</code></p>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2017-09-15T13:21:42.000Z" itemprop="dateModified">Last updated: 2017-09-15</time>
+                
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=hexoio" id="_carbonads_js"></script> -->
+              <strong class="sidebar-title">Contents</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码块"><span class="toc-text">代码块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域"><span class="toc-text">作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码块层级关系"><span class="toc-text">代码块层级关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量查找"><span class="toc-text">变量查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指令执行"><span class="toc-text">指令执行</span></a></li></ol>
+              <a href="#" id="article-toc-top">Back to Top</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">Rewrite</strong><a href="scope.html" class="sidebar-link current">Scope</a><a href="directive.html" class="sidebar-link current">Directive</a><a href="built_in_variable.html" class="sidebar-link current">Built-in Variables</a>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2017 <a href="https://github.com/hiproxy/hiproxy/graphs/contributors" target="_blank">hiproxy</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/zhangdaiying" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/hiproxy/hiproxy" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/" class="mobile-nav-link">Home</a><a href="/get_started/" class="mobile-nav-link">Get Started</a><a href="/configuration/" class="mobile-nav-link">Configuration</a><a href="/rewrite/" class="mobile-nav-link">Rewrite</a><a href="/api/" class="mobile-nav-link">API</a><a href="/developers/" class="mobile-nav-link">Developers</a><a href="/faqs/" class="mobile-nav-link">FAQs</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/hiproxy/hiproxy" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">Rewrite</strong><a href="scope.html" class="mobile-nav-link current">Scope</a><a href="directive.html" class="mobile-nav-link current">Directive</a><a href="built_in_variable.html" class="mobile-nav-link current">Built-in Variables</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>English</span></span>
+    <select id="mobile-lang-select" data-canonical="rewrite/scope.html">
+      
+        <option value="zh-cn">简体中文</option>
+      
+        <option value="en" selected>English</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia -->
+
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Run Example | hiproxy</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://hiproxy.org/get_started/run_example.html">
+  <!-- Alternative links -->
+  
+    
+      <link rel="alternative" hreflang="zh-cn" href="http://hiproxy.org/zh-cn/get_started/run_example.html">
+    
+      <link rel="alternative" hreflang="en" href="http://hiproxy.org/get_started/run_example.html">
+    
+  
+  <!-- Icon -->
+  <link rel="icon" type="image/png" href="/icons/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="/icons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-touch-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon-180x180.png" />
+  <link rel="apple-touch-icon" sizes="58x58" href="/icons/android-touch-icon.png" />
+  <!-- CSS -->
+  <!-- build:css build/css/navy.css -->
+  <link rel="stylesheet" href="/css/navy.css">
+  <!-- endbuild -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css">
+  <!-- RSS -->
+  <link rel="alternate" href="/atom.xml" title="hiproxy">
+  <!-- Google Analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-103231920-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header" class="wrapper">
+  <div id="header-inner" class="inner">
+    <h1 id="logo-wrap">
+      <a href="/" id="logo">hiproxy</a>
+    </h1>
+    <nav id="main-nav">
+      <a href="/" class="main-nav-link">Home</a><a href="/get_started/" class="main-nav-link">Get Started</a><a href="/configuration/" class="main-nav-link">Configuration</a><a href="/rewrite/" class="main-nav-link">Rewrite</a><a href="/api/" class="main-nav-link">API</a><a href="/developers/" class="main-nav-link">Developers</a><a href="/faqs/" class="main-nav-link">FAQs</a>
+      <a href="https://github.com/hiproxy/hiproxy" class="main-nav-link"><i class="fa fa-github-alt"></i></a>
+      <div id="search-input-wrap">
+        <div id="search-input-icon">
+          <i class="fa fa-search"></i>
+        </div>
+        <input type="search" id="search-input" placeholder="Search...">
+      </div>
+    </nav>
+    <div id="lang-select-wrap">
+      <label id="lang-select-label"><i class="fa fa-globe"></i><span>English</span></label>
+      <select id="lang-select" data-canonical="get_started/run_example.html">
+        
+          <option value="zh-cn">简体中文</option>
+        
+          <option value="en" selected>English</option>
+        
+      </select>
+    </div>
+    <a id="mobile-nav-toggle">
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+      <span class="mobile-nav-toggle-bar"></span>
+    </a>
+  </div>
+</header>
+
+    <div id="content-wrap">
+  <div id="content" class="wrapper">
+    <div id="content-inner">
+      <article class="article-container" itemscope itemtype="http://schema.org/Article">
+        <div class="article-inner">
+          <div class="article">
+            <div class="inner">
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">Run Example</h1>
+                <a href="https://github.com/hexojs/site/edit/master/source/get_started/run_example.md" class="article-edit-link" title="Improve this doc"><i class="fa fa-pencil"></i></a>
+              </header>
+              <div class="article-content" itemprop="articleBody">
+                <blockquote>
+<p>If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!</p>
+</blockquote>
+<h2 id="Introduction" class="article-heading"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction<a class="article-anchor" href="#Introduction" aria-hidden="true"></a></h2><p>Here is an <a href="https://github.com/hiproxy/hiproxy-example" target="_blank" rel="external">Example</a>, with a Workspace inside, this workspace contains three basic projects, they use port <code>8000</code>, <code>8001</code> and <code>8002</code> respectively.</p>
+<p>Meanwhile, a script named <code>server.js</code> is provided to start those three services, use command <code>npm start</code> or <code>node start</code></p>
+<p>The directory structure of this project is as follows:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── LICENSE</div><div class="line">├── README.md</div><div class="line">├── package.json</div><div class="line">├── start.js          <span class="comment"># Service start</span></div><div class="line">└── workspace         <span class="comment"># workspace</span></div><div class="line">    ├── blog-app      <span class="comment"># blog app example</span></div><div class="line">    │   ├── app.js    <span class="comment"># express app</span></div><div class="line">    │   ├── hosts     <span class="comment"># hosts file</span></div><div class="line">    │   ├── public    <span class="comment"># static resources</span></div><div class="line">    │   └── rewrite   <span class="comment"># rewrite file</span></div><div class="line">    ├── main-app      <span class="comment"># main app example</span></div><div class="line">    │   ├── app.js    <span class="comment"># express app</span></div><div class="line">    │   ├── hosts     <span class="comment"># hosts file</span></div><div class="line">    │   └── public    <span class="comment"># static resources</span></div><div class="line">    └── news-app      <span class="comment"># news app example</span></div><div class="line">        ├── app.js    <span class="comment"># express app</span></div><div class="line">        └── hosts     <span class="comment"># hosts file</span></div></pre></td></tr></table></figure>
+<p>In directory <code>workspace</code>, three apps exist, with a <code>hosts</code> file for each:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># main-app hosts</span></div><div class="line">127.0.0.1:8000 www.example.com</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># blog-app hosts</span></div><div class="line">127.0.0.1:8001 blog.example.com</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># news-app hosts</span></div><div class="line">127.0.0.1:8002 news.example.com</div></pre></td></tr></table></figure>
+<p>For <code>blog-app</code>, a <code>rewrite</code> file is included:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># rewrite rules</span></div><div class="line">domain blog.example.io &#123;</div><div class="line">  <span class="comment"># rewrite / to 8001;</span></div><div class="line">  location / &#123;</div><div class="line">    proxy_pass http://127.0.0.1:8001/;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment"># static files</span></div><div class="line">  location /static/ &#123;</div><div class="line">    <span class="built_in">alias</span> ./public/;</div><div class="line"></div><div class="line">    set_header server hiproxy;</div><div class="line">    set_cookie server hiproxy;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>…</p>
+<h2 id="STEPS" class="article-heading"><a href="#STEPS" class="headerlink" title="STEPS"></a>STEPS<a class="article-anchor" href="#STEPS" aria-hidden="true"></a></h2><h3 id="STEP-1-clone-codes" class="article-heading"><a href="#STEP-1-clone-codes" class="headerlink" title="STEP 1: clone codes"></a>STEP 1: clone codes<a class="article-anchor" href="#STEP-1-clone-codes" aria-hidden="true"></a></h3><p>The codes of example project is hosted on github, use Git command to clone those codes local</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/hiproxy/hiproxy-example.git</div></pre></td></tr></table></figure>
+<h3 id="STEP-2-install-dependencies" class="article-heading"><a href="#STEP-2-install-dependencies" class="headerlink" title="STEP 2: install dependencies"></a>STEP 2: install dependencies<a class="article-anchor" href="#STEP-2-install-dependencies" aria-hidden="true"></a></h3><p>Enter the root directory of project <code>hiproxy-example/</code>, install all the third-party dependencies</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> hiproxy-example</div><div class="line">npm install</div></pre></td></tr></table></figure>
+<h3 id="STEP-3-start-service" class="article-heading"><a href="#STEP-3-start-service" class="headerlink" title="STEP 3: start service"></a>STEP 3: start service<a class="article-anchor" href="#STEP-3-start-service" aria-hidden="true"></a></h3><p>After cloning codes and installing dependencies, start the service provided by example project. Use command in <code>hiproxy-example/</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm start</div></pre></td></tr></table></figure>
+<h3 id="STEP-4-start-hiproxy" class="article-heading"><a href="#STEP-4-start-hiproxy" class="headerlink" title="STEP 4: start hiproxy"></a>STEP 4: start hiproxy<a class="article-anchor" href="#STEP-4-start-hiproxy" aria-hidden="true"></a></h3><p>With all steps above done, start hiproxy to have the first taste of it. Use command in <code>hiproxy-example/</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hiproxy start --https --open --workspace ./workspace</div></pre></td></tr></table></figure>
+<h3 id="STEP-5-View-test-page" class="article-heading"><a href="#STEP-5-View-test-page" class="headerlink" title="STEP 5: View test page"></a>STEP 5: View test page<a class="article-anchor" href="#STEP-5-View-test-page" aria-hidden="true"></a></h3><p>After running the command above, a browser window will be opened, with proxy already set. Visit any of the links below:</p>
+<ul>
+<li><a href="http://blog.example.com/" target="_blank" rel="external">http://blog.example.com/</a></li>
+<li><a href="http://www.example.com/" target="_blank" rel="external">http://www.example.com/</a></li>
+<li><a href="http://news.example.com/" target="_blank" rel="external">http://news.example.com/</a></li>
+<li><a href="http://blog.example.io/" target="_blank" rel="external">http://blog.example.io/</a></li>
+<li><a href="http://blog.example.io/static/" target="_blank" rel="external">http://blog.example.io/static/</a></li>
+</ul>
+
+              </div>
+              <footer class="article-footer">
+                <time class="article-footer-updated" datetime="2017-09-15T13:21:42.000Z" itemprop="dateModified">Last updated: 2017-09-15</time>
+                
+              </footer>
+              
+            </div>
+          </div>
+          <aside id="article-toc" role="navigation">
+            <div id="article-toc-inner">
+              <!-- <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=hexoio" id="_carbonads_js"></script> -->
+              <strong class="sidebar-title">Contents</strong>
+              <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#STEPS"><span class="toc-text">STEPS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-1-clone-codes"><span class="toc-text">STEP 1: clone codes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-2-install-dependencies"><span class="toc-text">STEP 2: install dependencies</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-3-start-service"><span class="toc-text">STEP 3: start service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-4-start-hiproxy"><span class="toc-text">STEP 4: start hiproxy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-5-View-test-page"><span class="toc-text">STEP 5: View test page</span></a></li></ol></li></ol>
+              <a href="#" id="article-toc-top">Back to Top</a>
+            </div>
+          </aside>
+        </div>
+      </article>
+      <aside id="sidebar" role="navigation">
+  <div class="inner">
+    <strong class="sidebar-title">Get Started</strong><a href="installation.html" class="sidebar-link">Installation</a><a href="run_example.html" class="sidebar-link current">Run Example</a><a href="applied_to_existing_projects.html" class="sidebar-link current">Applied To Existing Projects</a><a href="cli_options.html" class="sidebar-link current">CLI Options</a>
+  </div>
+</aside>
+    </div>
+  </div>
+</div>
+
+    <footer id="footer" class="wrapper">
+  <div class="inner">
+    <div id="footer-copyright">
+      &copy; 2017 <a href="https://github.com/hiproxy/hiproxy/graphs/contributors" target="_blank">hiproxy</a><br>
+      Documentation licensed under <a href="http://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>.
+    </div>
+    <div id="footer-links">
+      <a href="https://twitter.com/zhangdaiying" class="footer-link" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/hiproxy/hiproxy" class="footer-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+  <div id="mobile-nav-dimmer"></div>
+  <nav id="mobile-nav">
+  <div id="mobile-nav-inner">
+    <ul id="mobile-nav-list">
+      <a href="/" class="mobile-nav-link">Home</a><a href="/get_started/" class="mobile-nav-link">Get Started</a><a href="/configuration/" class="mobile-nav-link">Configuration</a><a href="/rewrite/" class="mobile-nav-link">Rewrite</a><a href="/api/" class="mobile-nav-link">API</a><a href="/developers/" class="mobile-nav-link">Developers</a><a href="/faqs/" class="mobile-nav-link">FAQs</a>
+      <li class="mobile-nav-item">
+        <a href="https://github.com/hiproxy/hiproxy" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+      </li>
+    </ul>
+    
+      <strong class="mobile-nav-title">Get Started</strong><a href="installation.html" class="mobile-nav-link">Installation</a><a href="run_example.html" class="mobile-nav-link current">Run Example</a><a href="applied_to_existing_projects.html" class="mobile-nav-link current">Applied To Existing Projects</a><a href="cli_options.html" class="mobile-nav-link current">CLI Options</a>
+    
+  </div>
+  <div id="mobile-lang-select-wrap">
+    <span id="mobile-lang-select-label"><i class="fa fa-globe"></i><span>English</span></span>
+    <select id="mobile-lang-select" data-canonical="get_started/run_example.html">
+      
+        <option value="zh-cn">简体中文</option>
+      
+        <option value="en" selected>English</option>
+      
+    </select>
+  </div>
+</nav>
+  <!-- Scripts -->
+<!-- build:js build/js/main.js -->
+<script src="/js/lang_select.js"></script>
+<script src="/js/toc.js"></script>
+<script src="/js/mobile_nav.js"></script>
+<!-- endbuild -->
+
+<!-- Algolia -->
+
+
+</body>
+</html>
