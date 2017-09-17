@@ -5,7 +5,8 @@
     </h1>
     <nav id="main-nav">
       {{ header_menu('main-nav') }}
-      <a href="https://github.com/{{ config.github }}" class="main-nav-link"><i class="fa fa-github-alt"></i></a>
+      <a href="https://github.com/{{ config.github }}" class="main-nav-link" target="_blank"><i class="fa fa-github-alt"></i></a>
+      <a href="https://twitter.com/{{ config.twitter }}" class="main-nav-link" target="_blank"><i class="fa fa-twitter"></i></a>
     </nav>
     <div id="lang-select-wrap">
       <label id="lang-select-label"><i class="fa fa-globe"></i><span>{{ lang_name(page.lang) }}</span></label>

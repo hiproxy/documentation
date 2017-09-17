@@ -1,18 +1,21 @@
 en:
   get_started:
     Get Started:
+      Introduction: index.html
       Installation: installation.html
       Run Example: run_example.html
       Applied To Existing Projects: applied_to_existing_projects.html
       CLI Options: cli_options.html
   configuration:
     Configuration:
+      Introduction: index.html
       Configuration file lookup: find_conf.html
       hosts: hosts.html
       rewrite: rewrite.html
       SSL/TLS Certificate: ssl_certificate.html
   rewrite:
     Rewrite:
+      Introduction: index.html
       Scope: scope.html
       Directive: directive.html
       Built-in Variables: built_in_variable.html
@@ -33,19 +36,21 @@ en:
 zh-cn:
   get_started:
     快速开始:
+      开始: index.html
       安装: installation.html
       运行示例: run_example.html
       现有项目: applied_to_existing_projects.html
       CLI选项: cli_options.html
   configuration:
     配置:
-      简介: introduction.html
+      简介: index.html
       配置文件查找: find_conf.html
       hosts: hosts.html
       rewrite: rewrite.html
       SSL/TLS证书配置: ssl_certificate.html
   rewrite:
     Rewrite:
+      简介: index.html
       作用域: scope.html
       内置指令: directive.html
       内置变量: built_in_variable.html

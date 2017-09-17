@@ -1,4 +1,4 @@
-title: CLI options
+title: CLI 选项
 ---
 
 > 如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！

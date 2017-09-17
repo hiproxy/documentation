@@ -25,7 +25,7 @@ highlight:
   enable: true
   line_number: true
 
-# disqus_shortname: hiproxy
+disqus_shortname: hiproxy-doc
 google_analytics: UA-103231920-1
 twitter: zhangdaiying
 github: hiproxy/hiproxy

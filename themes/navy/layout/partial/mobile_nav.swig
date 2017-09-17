@@ -4,6 +4,7 @@
       {{ header_menu('mobile-nav') }}
       <li class="mobile-nav-item">
         <a href="https://github.com/{{ config.github }}" class="mobile-nav-link" rel="external" target="_blank">GitHub</a>
+        <a href="https://twitter.com/{{ config.twitter }}" class="mobile-nav-link" rel="external" target="_blank">Twitter</i></a>
       </li>
     </ul>
     {% if page.layout == 'page' %}
