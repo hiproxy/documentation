@@ -1,25 +1,23 @@
-title: CLI Command 命令配置
+title: CLI Command Configuration
 ---
 
-> 如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！
-> 
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
-## 简介
+## Introduction
 
-hiproxy的CLI提供了`start`/`stop`/`state`/`open`等命令，如果这些命令不能满足你的需求，也可以为hiproxy添加新的命令。
+CLI of hiproxy supplied commands such as `start`, `stop`, `state` and `open`. If then are not enought, you can add your own ones.
 
-新增的命令需要配置的内容为：`命令名称`、`描述`、`使用方法`、`处理函数`和`命令选项参数`。对应的字段为：
+You should define something, such as `command name`, `description`, `handler` and `options`, for the new command. This is description:
 
-* **命令名称（command）**：`<String>`，比如：`'hello'`。
-* **描述信息（describe）**：`<String>`，简单介绍命令的作用以及其他的信息，比如：`'A test command that say hello to you.'`。
-* **使用方法（usage）**：`<String>`，命令的使用方法提示信息，比如：`'hello [--name <name>] [-xodD]'`。
-* **处理函数（fn）**：`<Function>`，执行命令时，调用的函数。函数调用时`this`值为命令行参数解析后的对象。
-* **命令选项（option）**：`<Object>`，命令对应的选项，`key:value`形式。可以参考<https://github.com/hemsl/hemsl>。
+* **Command Name（command）**：`<String>`, i.e. `'hello'`。
+* **Description（describe）**：`<String>`, summary about the command's usage or more, i.e. `'A test command that say hello to you.'`。
+* **Usage（usage）**：`<String>`, command usage, i.e. `'hello [--name <name>] [-xodD]'`。
+* **Handler（fn）**：`<Function>`, the command invokes the handler while it's executing. `this` of the handler refer to a object which describes command line arguments.
+* **Options（option）**：`<Object>`, options for the command, supplied in form of `key:value`. See <https://github.com/hemsl/hemsl>.
 
-## 示例
+## Example
 
-一个完整的命令示例如下：
+A whole example of custom command is:
 
 ```js
 {

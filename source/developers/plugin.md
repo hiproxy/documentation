@@ -1,19 +1,20 @@
-title: Plugin 插件开发指南
+title: Plugin Development Guide
 ---
 
-hiproxy提供了一套插件开发机制，这个机制很简单：插件开发完成后，将插件安装到全局，hiproxy启动时会自动查找安装的所有插件。
+Hiproxy supplied a mechanism of developing plugins. It's simple that you need just develop a plugin and install it to global. Hiproxy should look for and load all plugins while it starts. 
 
-开发者开发新插件时，可以参考`hiproxy-plugin-example`: <https://github.com/hiproxy/hiproxy-plugin-example>。这是一个完整的插件示例，你可以基于这个示例修改。
+If you want to develop a plugin, `hiproxy-plugin-example` is a good demo which you can find at <https://github.com/hiproxy/hiproxy-plugin-example>. This is a entire plugin demo, you can start your own pluign base on the demo.
 
-**插件就是一个普通的npm模块，不需要将hiproxy作为依赖安装到插件中。**
+**A plugin is a common npm module. You do not need to install hiproxy as a dependency.**
 
 <br />
 
-## 插件结构
+## Plugin's architecture
 
-hiproxy插件必须满足三个条件：
+Three condition should be satisfied before a module becomes a hiproxy pluign:
 
-1. __插件必须作为一个独立的npm模块，这个模块需要导出一个对象，这个对象可以指定三个属性__
+1. __It must be a standalone npm module which export only one object with three properties__
+
 ```js
 module.exports = {
   // CLI commands
@@ -27,29 +28,28 @@ module.exports = {
 };
 ```
 
-* **commands**: `<Array>`，用来扩展`hiproxy`的**CLI命令**，数组中每个对象作为一个命令配置，具体配置见[命令配置](./cli_command.html)。
+* **commands**: `<Array>`, extends `hiproxy` **CLI**. Each element in the array should be a command configuration. See [Command Configuration](./cli_command.html) for details.
 
-* **directives**: `<Array>`，用来扩展`hiproxy`的**rewrite指令**，数组中每个对象作为一个指令配置，具体配置见[指令配置](./directive.html)。
+* **directives**: `<Array>`, extends ***rewrite* directive** of `hiproxy`. Each element in the array should be a directive configuration. See [Rewrite Directive](./directive.html) for details.
 
-* **routes**: `<Array>`，用来扩展`hiproxy`的**页面路由**，数组中每个对象作为一个路由配置，具体配置见[路由配置](./route.html)。
+* **routes**: `<Array>`, extends page router of `hiproxy`. Each element in the array should be a route configuration.See [Page Route Configuration](./route.html) for details.
 
-2. __插件模块必须安装到全局__
+2. __Plugin module must be installed to global__
 
-3. __插件名称必须以`hiproxy-plugin-`开头__
+3. __Plugin name should use `hiproxy-plugin-` as prefix__
 
-## 代码示例
+## Code Example
 
 <https://github.com/hiproxy/hiproxy-plugin-example/blob/master/index.js#L14-L23>
 
-## 插件发布
+## Publish Plugin
 
-插件开发、测试完成之后，可以将其发布到npm。
+You can publish a plugin into npm while it's completed with development and testing.
 
-发布的过程和方法，跟其他npm模块的发布一样，因为hiproxy的插件，**就是一个**遵循了特定规则的**普通npm模块**。
+The publish process is the same as publishing other npm module, since the a plugin of hiproxy **is jsut** a **common npm module** which follows given rules.
 
+## Hint
 
-## 温馨提示
+Hiproxy look for plugins which has `hiproxy-plugiin-` as prefix and installed in the directory described by `npm root -g`, so that hiproxy cannot find new developing pluigns.
 
-由于hiproxy只会从`npm root -g`所在的目录去查找名称以`hiproxy-plugin-`开头的插件，所以在本地开发时，hiproxy加载不到新的插件。
-
-可以使用`npm link`，创建一个符号链接，这样就能一边开发一边调试开发中的插件。详情请参考npm文档：[npm link](https://docs.npmjs.com/cli/link)。
+`npm link` can create a symbol link of a plugin so that you can debug it while it's in development. See [npm link](https://docs.npmjs.com/cli/link) of npm document for details.
