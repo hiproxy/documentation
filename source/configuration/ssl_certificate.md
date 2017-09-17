@@ -19,7 +19,7 @@ You can get the URL from <http://127.0.0.1:5525/> by following below image:
 
 The following describes how the root certificate is installed in OSX, iOS, Windows and Android.
 
-### OSX System
+### Mac OSX
 
 1. Double click downloaded `Hiproxy_Custom_CA_Certificate.pem` to import the certificate to keychain.
 
@@ -38,7 +38,7 @@ The following describes how the root certificate is installed in OSX, iOS, Windo
 <img src="../../images/root_cert_trusted.png" width="680" />
 
 
-### iOS系统
+### iOS
 
 1. Send the downloaded certificate to iPhone then open it in iOS.
 
