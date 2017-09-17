@@ -1,8 +1,6 @@
 title: Node.js API
 ---
 
-> 如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！
-> 
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
 <a name="ProxyServer"></a>
@@ -24,110 +22,110 @@ title: Node.js API
 <a name="new_ProxyServer_new"></a>
 
 ### new ProxyServer(httpPort, httpsPort)
-hiproxy代理服务器
+Hiproxy's proxy server.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| httpPort | <code>Number</code> | http代理服务端口号 |
-| httpsPort | <code>Number</code> | https代理服务器端口号 |
+| httpPort | <code>Number</code> | proxy server port for http |
+| httpsPort | <code>Number</code> | proxy server port for https |
 
 <a name="ProxyServer+start"></a>
 
 ### proxyServer.start([config]) ⇒ <code>Promise</code>
-启动代理服务
+Start proxy server.
 
 **Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
 **Access**: public  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| config | <code>Object</code> | 配置字段 |
+| config | <code>Object</code> | configuration fields |
 
 <a name="ProxyServer+stop"></a>
 
 ### proxyServer.stop() ⇒ [<code>ProxyServer</code>](#ProxyServer)
-停止代理服务
+Stop proxy server.
 
 **Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
 **Access**: public  
 <a name="ProxyServer+restart"></a>
 
 ### proxyServer.restart() ⇒ [<code>ProxyServer</code>](#ProxyServer)
-重启代理服务
+Restart proxy server.
 
 **Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
 **Access**: public  
 <a name="ProxyServer+addHostsFile"></a>
 
 ### proxyServer.addHostsFile(filePath) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-添加Hosts文件
+Add a *hosts* file.
 
 **Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
 **Access**: public  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| filePath | <code>String</code> \| <code>Array</code> | `hosts`文件路径（绝对路径） |
+| filePath | <code>String</code> \| <code>Array</code> | `hosts` file path(s) (absolute) |
 
 <a name="ProxyServer+addRewriteFile"></a>
 
 ### proxyServer.addRewriteFile(filePath) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-添加rewrite文件
+Add a *rewrite* file.
 
 **Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
 **Access**: public  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| filePath | <code>String</code> \| <code>Array</code> | `rewrite`文件路径（绝对路径） |
+| filePath | <code>String</code> \| <code>Array</code> | `rewrite` file path(s) (absolute) |
 
 <a name="ProxyServer+openBrowser"></a>
 
 ### proxyServer.openBrowser(browserName, url, [usePacProxy]) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-打开浏览器窗口
+Open a browser.
 
 **Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
 **Access**: public  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| browserName | <code>String</code> |  | 浏览器名称 |
-| url | <code>String</code> |  | 要打开的url |
-| [usePacProxy] | <code>Boolean</code> | <code>false</code> | 是否使用自动代理 |
+| browserName | <code>String</code> |  | browser name |
+| url | <code>String</code> |  | the URL should be opened |
+| [usePacProxy] | <code>Boolean</code> | <code>false</code> | whether use PAC proxy |
 
 <a name="ProxyServer+findConfigFiels"></a>
 
 ### proxyServer.findConfigFiles([dir]) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-在指定工作空间（目录）下查找配置文件
-hiproxy会在指定的空间下所有一级目录下查找配置文件
+Look for configuration files within the workspace (directory).
+Hiproxy looks for configuration files from immediate child directories of workspace.
 
 **Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
 **Access**: public  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| [dir] | <code>String</code> | <code>process.cwd()</code> | 工作空间（目录） |
+| [dir] | <code>String</code> | <code>process.cwd()</code> | workspace (directory) |
 
 
 ### proxyServer.enableConfFile(confFileType, filePath) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-启用指定配置文件
+Enable specified configuration file.
 
 **Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
 **Access**: public  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| confFileType | <code>String</code> |  | 文件类型(host/rewrite) |
-| filePath | <code>String</code> \| <code>Array</code> |  | 修改的文件路径 |
+| confFileType | <code>String</code> |  | file type (host/rewrite) |
+| filePath | <code>String</code> \| <code>Array</code> |  | modified file path(s) |
 
 ### proxyServer.disableConfFile(confFileType, filePath) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-禁用指定配置文件
+Disable specified configuration file.
 
 **Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
 **Access**: public  
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
-| confFileType | <code>String</code> |  | 文件类型(host/rewrite) |
-| filePath | <code>String</code> \| <code>Array</code> |  | 修改的文件路径 |
+| confFileType | <code>String</code> |  | file type (host/rewrite) |
+| filePath | <code>String</code> \| <code>Array</code> |  | modified file path(s) |

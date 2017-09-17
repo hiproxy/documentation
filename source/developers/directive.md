@@ -1,21 +1,19 @@
 title: Rewrite Directive
 ---
 
-> 如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！
-> 
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
-## 简介
+## Introduction
 
-**rewrite指令**可以配置的内容为：`指令名称`、`作用域`和`处理函数`。对应的字段为：
+**rewrite directive** can configure `directive name`, `scopes` and `handler`. They are:
 
-* **指令名称（name）**：`<String>`，比如：`'add'`。
-* **作用域（scope）**：`<Array>`，指令对应的作用域，只有在这里指定的作用域里面才会执行。可选择的作用域为：`global`、`domain`、`location`、`request`和`response`。
-* **处理函数（fn）**：`<Function>`，执行指令时，调用的函数，详细信息请查看[处理函数](#handler-function)。
+* **Directive Name（name）**：`<String>`, i.e. `'add'`。
+* **Scopes（scope）**：`<Array>`, the scopes which the directive runs in. The directive is only valid in specified scopes. The scopes include `global`, `domain`, `location`, `request` and `response`.
+* **Handler（fn）**：`<Function>`, the handler should be invoked while the directive is execute. See [handler](#handler-function) for details.
 
-## 示例
+## Example
 
-一个完整的指令示例如下：
+Here is a entire example of directive:
 
 ```js
 {
@@ -32,20 +30,20 @@ title: Rewrite Directive
 
 <a name="handler-function"></a>
 
-## 处理函数
+## Handler
 
-处理函数会在hiproxy执行指令的时候被调用，传入rewrite配置文件中这个指令对应的参数，并设置`this`。
+The handler is invoked while hiproxy is executing related directive. The parameters whick are specified for the directive in *rewrite* configuration are passed in and `this` should be setted.
 
-### 参数
+### Parameters
 
-处理函数会被调用是，会传入rewrite配置文件中这个指令对应的参数，例如配置了指令`proxy_set_header Host hiproxy.org`，那么在执行**处理函数**时，传入的参数为：`('Host', 'hiproxy.org')`
+The parameters for the directive in *rewrite* configuration should be passed into handler. For example, `proxy_set_header Host hiproxy.org` is configured then `('Host', 'hiproxy.org')` should be passed into **the handler**.
 
 ### this
 
-不同作用域中的指令执行时，this值也不同，下面列举了所有作用域指令对应的this值:
+`this` value is depended on the scope which the directive executs in. Following are possible `this` values:
 
-- **global**: 整个rewrite对象-`{props: <Object>, domains: <Array>, commands: <Array>}}`
-- **domain**: domain对象-`{domain: <String>, props: <Object>, location: <Array>, commands: <Array>}}`
-- **location**: location对象-`{props: <Object>, location: <String>, commands: <Array>}}`
+- **global**: the entire *rewrite* instance - `{props: <Object>, domains: <Array>, commands: <Array>}}`
+- **domain**: domain instance - `{domain: <String>, props: <Object>, location: <Array>, commands: <Array>}}`
+- **location**: location instance - `{props: <Object>, location: <String>, commands: <Array>}}`
 - **request**: `{request: <http.IncomingMessage>}`
 - **response**: `{response: <http.ServerResponse>}`
