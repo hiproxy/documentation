@@ -168,13 +168,13 @@ echo <p>finish</p>;
 
 描述：手动指定证书文件
 
-参数：**ssl_certificate** file.crt（只支持相对路径，后期完善）
+参数：**ssl_certificate** file.crt
 
 例子：
 
 ```bash
 example.com => {
-    ssl_certificate /user/root/.hiproxy/cert/example.crt;
+  ssl_certificate /user/root/.hiproxy/cert/example.crt;
 }
 
 ```
@@ -183,13 +183,13 @@ example.com => {
 
 描述：手动指定私钥文件
 
-参数：**ssl_certificate_key** file.key（只支持相对路径，后期完善）
+参数：**ssl_certificate_key** file.key
 
 例子：
 
 ```bash
 example.com => {
-    ssl_certificate_key /user/root/.hiproxy/cert/example.key;
+  ssl_certificate_key /user/root/.hiproxy/cert/example.key;
 }
 
 ```
