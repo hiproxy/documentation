@@ -1,39 +1,39 @@
 title: FAQs
 ---
 
-### hiproxy的核心目的／功能是什么？
+### What's the core feature(or purpose) of hiproxy?
 
-hiproxy的核心功能是代理请求，主要是为了解决前端开发工程师在本地开发过程中遇到的：
+The core feature of hiproxy is forwarding request. Hiproxy purposes to solve some problems which front-end developer can meet while working:
 
-- `hosts`修改后由于DNS缓存不能立刻生效
-- 需要使用Nginx来做反向代理
-- 自签名HTTPS证书不受信任
-- 每个人都在本地维护环境配置文件（hosts／Nginx配置）
+- `hosts` cannot work immediately since there are caches after it's updated.
+- Nginx is used for reverse proxy.
+- Self signed HTTPS certificate are not trusted.
+- Everyone maintans the environment profile (hosts/nginx configuration).
 - ...
 
 <br/>
 
-### hiproxy跟Charles／Fiddler有什么区别？
+### What's the difference between hiproxy and Charles／Fiddler?
 
-hiproxy跟Charles/Fiddler都有抓包、请求代理的功能，很多核心的功能基本类似。只不过hiproxy是一个命令行的工具，使用配置文件来配置。
+They all have the ability to capture packages, proxy request and many core function. But hiproxy is a CLI tool which works with configuration files.
 
-此外，hiproxy现在没有查看网络请求的具体内容的界面，将来会通过插件开发，敬请期待。
-
-<br/>
-
-### hiproxy的hosts跟系统hosts有什么关系？
-
-hiproxy的hosts跟系统hosts文件本身没有任何关系。
-
-hiproxy的hosts文件一般存放在项目中，或者其他目录（根据用户情况自己决定放到哪里）。hiproxy代理服务启动的时候，会查找并解析这些hosts文件，**不会去查找解析系统hosts**。
+However, hiproxy has no interface to see the specific content of request. That will be introduced as a plugin in the future.
 
 <br/>
 
-### hiproxy的rewrite配置文件完全兼容Nginx配置吗？
+### What's the relationship between hosts for hiproxy and for OS？
 
-不兼容，hiproxy的rewrite规则配置文件跟Nginx的配置文件本身没有任何关系。
+They are no relationship actually.
 
-从语法上看，hiproxy的rewrite配置文件借鉴了Nginx配置的语法。核心的语法跟Nginx的语法一致，但是也有些语法是hiproxy特有的，并不完全跟Nginx语法一致，比如：
+the hosts file for hiproxy is normally placed in project directory, or other (user specified) directory. Hiproxy would looking for, load and parse the hosts file in project directories, **but not do with OS one**.
+
+<br/>
+
+### Is the rewrite configuration file for hiproxy fully compatible with Nginx configuration?
+
+No. They are no relationship actually.
+
+The rewrite configuration for rewrite has similar syntax of Nginx configuration. The core syntax is consistent with the syntax of Nginx, but there are also some syntax are specific to hiproxy. They are not exactly consistent with Nginx syntax. For example:
 
 ```bash
 # base rule
@@ -45,36 +45,35 @@ hiproxy.org => {
 }
 ```
 
-此外，也有部分指令采用Nginx的指令名称且功能基本类似，比如`proxy_pass`、`set`、`ssl_certificate`和`ssl_certificate_key`等。但是也**不保证所有的功能细节跟Nginx的指令保持一致**。详细的指令功能说明请参考[指令](../rewrite/directive.html)。
+In addition, some directives come from Nginx which do simular things, such as `proxy_pass`, `set`, `ssl_certificate` and `ssl_certificate_key`, etc. In any case they **cannot promise that all details are same as Nginx directives.**Please see [Directive](../rewrite/directive.html) for more information.
 
 <br/>
 
-### hiproxy多个项目中的不同配置文件使用相同的域名吗？
+### Are different configuration file used in multiple hiproxy projects using the same domain name?
 
-支持。
+It's supported.
 
-可以在不同的项目的不同配置文件中，给相同的域名配置代理规则。hiproxy会自动合并相同域名的规则，如果路由配置有冲突，后加载的配置文件的规则会覆盖前面的规则。
-
-<br/>
-
-### hiproxy怎么处理多个配置文件中的规则冲突？
-
-详细的配置规则处理文档正在编写。
-
+You can set rules for the same domain name in configuration files of different projects. Hiproxy can merge all rules about the same domains. If there is conflict, later loaded rules would rewrite earlier rules.
 
 <br/>
 
-### hiproxy根证书怎么获取／导入？
+### How does hiproxy handle the conflict between multiple configuraton files?
 
-可以查看文档[获取／导入SSL证书](../configuration/ssl_certificate.html)。
+Some soon.
 
 <br/>
 
-### hiproxy中如何使用自己的SSL证书？
+### How to get/import root certificate of hiproxy？
 
-默认情况下，在代理https请求的时候，hiproxy会**自动生成证书**，并使用hiproxy自定义的CA证书签名。用户只需要导入hiproxy的根证书。
+See [get／import SSL certificate](../configuration/ssl_certificate.html)。
 
-如果用户需要使用自定义的证书，可以·使用hiproxy提供的指令来配置：
+<br/>
+
+### How hiproxy to use it own SSL certificate？
+
+By default, when the https request is forwading, hiproxy will **generate the certifiate automatically** and use customized CA certificate signature. The users should import root certificate of hiproxy.
+
+If you use customized certificate, ou can use some hiproxy directive for configurating:
 
 ```
 ssl_certificate     ./hiproxy.org.crt;
