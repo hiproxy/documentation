@@ -1,29 +1,27 @@
 title: Rewrite Context
 ---
 
-> 如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！
->
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
-## 代码块
+## Code block
 
-hiproxy的代码块，分为三类：
+There are three categories of code block in hiproxy:
 
-* **全局块**：所有的配置文件中不在其他块的代码，都在全局块中；
-* **domain块**：位于全局块中；
-* **location块**：位于domain块中；
+* **global block**: All configurations which are not in other blocks, are in global block;
+* **domain block**: It's nested in global block;
+* **location block**: It's nested in domain block;
 
-## 作用域
+## Scope
 
-hiproxy 配置文件中涉及到的作用域有5种：
+There are five types of scopes that are involved in the configuration file:
 
-* **全局作用域**：*全局块*对应的作用域。这里的变量可以在任何地方访问到；
-* **domain作用域**：*domain块*对应的作用域。
-* **location作用域**：*location块*对应的作用域。
-* **request作用域**：隐式作用域，不对应具体的代码块，这些作用域中的指令，可以分布在任何代码块中。
-* **response作用域**：隐式作用域，不对应具体的代码块，这些作用域中的指令，可以分布在任何代码块中。
+* **global scope**: The scope is corresponding to *global block*. The variables in the global scope can be accessed everywhere;
+* **domain scope**: The scope is corresponding to *domain block*.
+* **location scope**: The scope is corresponding to *location block*.
+* **request scope**: A implicit scopre which is not corrsponding to any code block. The directives in the scope are distributed across any code block.
+* **response scope**: A implicit scopre which is not corrsponding to any code block. The directives in the scope are distributed across any code block.
 
-## 代码块层级关系
+## Code block hierarchy
 
 ```
 global
@@ -37,18 +35,18 @@ global
         |- ...
 ```
 
-## 变量查找
+## Looking for variables
 
-当前作用域中查找变量的规则为：
+Here are rules for looking for variables in current scope:
 
-1. 如果当前作用域有这个变量，*返回* 这个变量的值。
-2. 查找上一级作用域，如果上一级作用域中有这个变量，*返回* 这个变量的值。
-3. 否则，如果上一级作用域是全局作用域，*返回* 变量名称（包括`$`符号\)。
-4. 重复步骤*[2-3]*。
+1. While the varialbe is in current scope, its value should be *returned*.
+2. Looking for the varialbe in upper level scope, and *return* the value if it's found.
+3. Otherwise, if upper scope is global scope, the variable name (include `$` character) should be *returned*.
+4. Repeat steps *[2-3]*.
 
-## 指令执行
+## Execute directive
 
-代码块中的指令在对应的时机（request／response）会自动执行，此外，还会执行上一级代码块中的指令，比如：
+The directive in the code block executes automaticlly at the appropriate time (request/response). The directives in upper scope execute too.
 
 ```bash
 www1.test.com => {
@@ -72,7 +70,8 @@ www1.test.com => {
 }
 ```
 
-上面的配置中，在执行\#2、\#3和\#4处的指令同时，都会执行配置在\#1处的指令，也就是说: 
+In the configuration, if the directive at \#2, \#3 or \#4 executes, the one at \#1 would execute too. That means:
 
-`/`、`/index.html`和`/\/(native|gallery|picture|font)\/(.*)/`对应的请求，都会加上请求头部`Host`，值为`www.test.com`
+
+A request for `/`, `/index.html` or `/\/(native|gallery|picture|font)\/(.*)/` should be add a `Host` header, which has `www.test.com` as value.
 

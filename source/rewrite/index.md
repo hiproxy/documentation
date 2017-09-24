@@ -1,27 +1,25 @@
 title: Rewrite Introduction
 ---
 
-> 如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！
->
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
-## 简介
+## Introduction
 
-**rewrite** 参考了[Nginx][Nginx]配置语法，通过简单的配置，就可以帮助前端开发在本地调试的基础上，方便的利用其他环境或者线上的API接口进行测试。
+**rewrite** reference [Nginx][Nginx] configuration syntax. With very simple configuration, it is helpful for front-end developer to debug in native with online API or some other environemnts.
 
-当服务启动后，将自动扫描并监听各项目根目录下的`rewrite`文件，生成及实时更新转发规则，无需重启服务。
+The server would scan and monitor `rewrite` files in each projects while it's running. If some file are changed, it can update forward rules immediately without restarting the server.
 
-**注**：hiproxy同时支持项目`rewrite`及[hosts][hosts]文件。如果仅需要简单的`域名+端口`转发，请参考[hosts][hosts]。
+**Note**: hiproxy support both `rewrite` and [hosts][hosts] file. If you need only simple `domain+port` forwarding, you can use host file by referencing[hosts][hosts].
 
-## 基本语法
+## Basic syntax
 
-### 变量
+### Variables
 
-**语法**
+**Syntax**
 ```bash
-$变量名
+$variableName
 ```
-**例子**
+**Example**
 
 ```bash
 # 定义变量
@@ -32,113 +30,113 @@ $var_name
 ```
 ### domain
 
-`domain` 用来指定一个域名，这个域名的所有配置都在 `domain` 块中。
+`domain` specify a domain name and all configuration about the domain name should be in the `domain` block.
 
-**语法**
+**Syntax**
 
 ```bash
-[域名|变量] => {
+[domain_name|variable] => {
     # ...
 }
 ```
-**例子**
+**Example**
 
 ```bash
 set $domain some.example.com
 
-# 直接使用域名
+# use a domain name directly
 some.example.com => {
     # ...
 }
 
-# 或者使用变量
+# or use a variable
 $domain => {
     # ...
 }
 ```
 ### location
 
-location 用来指定域名中的一个具体的路径，这个路径的所有配置都在 location 块中。
+`location` represent a specific path. All configuration about the path should be in the `location` block.
 
-**注意**：location必须位于domain块中。
+**Note**: `location` must be in `domain` block.
 
-**语法**
+**Syntax**
 
 ```bash
-location [目录|文件|正则表达式|变量] {
+location [directory|file|regex|variables] {
     # ...
 }
 ```
-**例子**
+**Example**
 
 ```bash
-# 目录
+# directory
 location /some/path/ {
     # ...
 }
 
-# 具体文件
+# specific file
 location /some/file.htm {
     # ...
 }
 
-# 正则表达式
+# regular expression
 location ~ ^/some/(path|path1)/.* {
     # ...
 }
 
-# 变量
+# variables
 location $some/$path {
     # ...
 }
 ```
-### 命令
+### Directives
 
-命令用于设置一些变量，或者对`request`\/`response`做一些操作。
+Directive is used to set variables, or manipulate `request`/`response`.
 
-**语法**
+**Syntax**
 
 ```bash
-命令 参数1 参数2 ... 参数N
+command param1 param2 ... paramN
 ```
 
-**例子**
+**Example**
 
 ```bash
-# 设置代理时的头部
+# set proxy header
 proxy_set_header Host some.example.com;
 
-# 设置response的cookie
+# set cookie in response
 set_cookie UserID some_user_id;
 ```
 
-### 注释
+### Comments
 
-用来注释某些不需要的内容，**只支持单行注释**。
+Annotate certain unnecessary conent **Only line comments are supported.**
 
-**语法**
-
-```bash
-# 注释内容
-```
-
-### 简写语法
-
-简写语法，可以用来定义一些基本的规则，不需要写`location`和其他的命令。
-
-**语法**
+**Syntax**
 
 ```bash
-域名 ==> 域名|路径
+# comment content
 ```
 
-**例子**
+### Brief syntax
+
+The brief syntax can define some basic rules, no need `location` or other directives.
+
+**Syntax**
+
+```bash
+domain ==> domain|path
+```
+
+**Example**
 
 ```bash
 json.example.com => 127.0.0.1:8800;
 ```
 
-## 更多例子
+## More Examples
 
 ```bash
 set $local 127.0.0.1:8800
