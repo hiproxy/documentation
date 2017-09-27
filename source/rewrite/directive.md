@@ -1,41 +1,39 @@
 title: Rewrite Directive
 ---
 
-> 如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！
->
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
-## 指令
+## Directive
 
-`指令`（也称：`命令`）用于设置变量，或者对request/response做一些操作。
+`directive`（known as `command`）is for setting variable, or manipulating request/response.
 
 ### set
 
-描述：定义变量
+Description: define variables
 
-语法：**set** key value
+Syntax: **set** key value
 
-**作用域链**：global, domain, location
+**Scope Chain**：global, domain, location
 
-例子：
+Example:
 
 ```bash
 set $server hiipack;
 ```
 
-### 代理请求相关指令
+### Directives corrlative proxy request
 
-代理请求相关的指令，用于操作代理服务向目标服务器发送请求的`Request`对象。
+The directives are `Request` instances to send request from proxy to target server.
 
-**作用域链**：domain, location
+**Scope Chain**：domain, location
 
 #### * proxy_set_header
 
-描述：设置请求头部字段
+Description: setting a request header
 
-语法：**proxy_set_header** key value
+Syntax: **proxy_set_header** key value
 
-例子：
+Example:
 
 ```bash
 proxy_set_header Host some.example.com;
@@ -43,11 +41,11 @@ proxy_set_header Host some.example.com;
 
 #### * proxy_hide_header
 
-描述：删除请求头部字段
+Description: remove a request header
 
-语法：**proxy_hide_header** key
+Syntax: **proxy_hide_header** key
 
-例子：
+Example:
 
 ```bash
 proxy_hide_header Host;
@@ -55,11 +53,11 @@ proxy_hide_header Host;
 
 #### * proxy_set_cookie
 
-描述：设置请求Cookie
+Description: setting a request cookie value
 
-语法：**proxy_set_cookie** key value
+Syntax: **proxy_set_cookie** key value
 
-例子：
+Example:
 
 ```bash
 proxy_set_cookie from hiproxy;
@@ -67,29 +65,29 @@ proxy_set_cookie from hiproxy;
 
 #### * proxy_hide_cookie
 
-描述：删除请求Cookie字段
+Description: remove a request cookie value
 
-语法：**proxy_hide_cookie** key
+Syntax: **proxy_hide_cookie** key
 
-例子：
+Example:
 
 ```bash
 proxy_hide_cookie from;
 ```
 
-### 代理响应相关指令
+### Directives correlative respose
 
-代理响应相关的指令用于配置代理服务器响应浏览器的`Response`对象。
+The directives are `Response` instances to let proxy response the browser.
 
-**作用域链**：domain, location
+**Scope Chain**：domain, location
 
 #### * set_header
 
-描述：添加Header字段
+Description: add a header
 
-语法：**set_header** key value
+Syntax: **set_header** key value
 
-例子：
+Example:
 
 ```bash
 set_header SERVER hiproxy;
@@ -97,11 +95,11 @@ set_header SERVER hiproxy;
 
 #### * hide_header
 
-描述：删除Header字段
+Description: remove a header
 
-语法：**hide_header** key
+Syntax: **hide_header** key
 
-*例子*：
+*Example*:
 
 ```bash
 hide_header SERVER;
@@ -109,11 +107,11 @@ hide_header SERVER;
 
 #### * set_cookie
 
-描述：设置Cookie字段
+Description: set a coolie value
 
-语法：**set_cookie** key value
+Syntax: **set_cookie** key value
 
-例子
+Example
 
 ```bash
 set_cookie SESSION_ID 2BF36A09CB35FD71E;
@@ -121,11 +119,11 @@ set_cookie SESSION_ID 2BF36A09CB35FD71E;
 
 #### * hide_cookie
 
-描述：删除Cookie字段
+Description: remove a cookie value
 
-语法：**hide_cookie** key
+Syntax: **hide_cookie** key
 
-*例子*：
+*Example*:
 
 ```bash
 hide_cookie SESSION_ID;
@@ -133,11 +131,11 @@ hide_cookie SESSION_ID;
 
 #### * send_file
 
-描述：返回指定的文件
+Description: send the specified file as response
 
-语法：**send_file** file_name
+Syntax: **send_file** file_name
 
-例子：
+Example:
 
 ```bash
 send_file index.html;
@@ -146,31 +144,30 @@ send_file /site/index.html;
 
 #### * echo
 
-描述：返回指定内容
+Description: response specified content
 
-语法：**echo** string
+Syntax: **echo** string
 
-例子：
+Example:
 
 ```bash
 echo <h1>hello_echo</h1>;
 echo <p>finish</p>;
 ```
 
+### Directives in domain
 
-### domain内部指令
+They are valid only in then same domain and make directives ignored which has the same name in global scope.
 
-只在同一个domain内有效，且覆盖全局同名指令
-
-**作用域链**：domain
+**Scope Chain**：domain
 
 #### * ssl_certificate
 
-描述：手动指定证书文件
+Description: specify certificate file
 
-参数：**ssl_certificate** file.crt
+parameter: **ssl_certificate** file.crt
 
-例子：
+Example:
 
 ```bash
 example.com => {
@@ -181,11 +178,11 @@ example.com => {
 
 #### * ssl_certificate_key
 
-描述：手动指定私钥文件
+Description: specify the file storing private key
 
-参数：**ssl_certificate_key** file.key
+parameter: **ssl_certificate_key** file.key
 
-例子：
+Example:
 
 ```bash
 example.com => {
@@ -195,19 +192,19 @@ example.com => {
 ```
 
 
-### location内部指令
+### Directives in location
 
-只在同一个location内有效，且覆盖全局及domain同名指令
+They are valid only in the same location and make directives ignored which has the same name in global scope.
 
-**作用域链**：domain, location
+**Scope Chain**：domain, location
 
 #### * proxy_pass
 
-描述：设置请求转发的目标地址
+Description: set the target location of forwarding
 
-参数：**proxy_pass** url
+parameter: **proxy_pass** url
 
-例子：
+Example:
 
 ```bash
 proxy_pass http://some.example.com/some/path/;
@@ -215,11 +212,11 @@ proxy_pass http://some.example.com/some/path/;
 
 #### * alias
 
-描述：将对应的`location`映射到本地目录
+Description: map the particular `location` to native.
 
-参数：**alias** path
+parameter: **alias** path
 
-例子：
+Example:
 
 ```bash
 alias /Users/root/some/path/;
@@ -227,11 +224,11 @@ alias /Users/root/some/path/;
 
 #### * root
 
-描述：将对应的`location`映射到本地目录时的默认文件，默认文件名为`index.html`
+Description: the default document while `location` is mapped to native. `index.html` is the omitted document name.
 
-参数：**root** file_name
+parameter: **root** file_name
 
-*例子*：
+*Example*:
 
 ```bash
 root app.html;

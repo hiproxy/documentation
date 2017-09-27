@@ -1,72 +1,87 @@
-title: Rewrite built in variables
+title: Rewrite Built-in Variables
 ---
 
-> 如果你愿意帮助hiproxy编写文档，请联系zdying@live.com, 谢谢！
->
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
-hiproxy的rewrite规则配置文件中，我们可以自己定义全局变量（在全局作用域中使用`set $var value`），也可以在其他作用域中定义变量；
+You can define your own global variables (use `set $var value` in global scope) in rewrite rules configuration file of hiproxy, as well as you can define variables in other scopes.
 
-hiproxy内置了一些变量，这些内置变量可以在相应的作用域中直接使用，不需要去定义并赋值，而且这些内置变量也不能被用户重新定义覆盖。
+Hiproxy has some built-in variables so that you can use them directly in corresponding scopes without neither defining nor assigning. Particularly, user cannot redefine the variables to overwrite them.
 
-## 全局变量
+## Global variables
 
-这些全局变量，在配置文件的**任何地方都可以使用**。
+Global variables can **be used in everywhere of configuration files**.
 
-> 提示：hiproxy暂时没有内置的全局变量。将来会添加！
+> Hint: hiproxy currently has not built-in variables. Some would be added in the furture.
 
-## location块级变量
+## Location block scope variables
 
-这些变量，只能在`location`块中使用，这些变量主要是存储与请求相关的一些信息，比如请求的参数（`$query_string`）、Cookie（`$cookie_name`）和host（`$host`)等。现在支持的所有内置变量：
+You can use the variables only in `location` blocks. Then are used to store information about request, such as query string(`$query_string`), Cookie(`$cookie_name`), and host(`$host`), etc. Here are all the variables that are currently supported:
 
 ### $host
-当前请求的URL对应的`host`或者请求头部的`Host`字段。
+
+The `host` correlative to the current request URL, or the `Host` field in request headers.
 
 ### $hostname
-当前请求的URL对应的`hostname`或者请求头部的`Host`字段对应的`hostname`。
+
+The `hostname` correlative to the current request URL, or correlative to the `Host` field in request headers.
 
 ### $server_port
-请求的服务端口号，默认`80`。
+
+The server port number of the request, default `80`.
 
 ### $search
-请求的参数字符串（包括`?`），比如`?from=app&v=19482848253`。
+
+The query string (with `?`) of the request, such as `?from=app&v=19482848253`.
 
 ### $query_string
-请求的参数字符串（**不包括`?`**），比如`from=app&v=19482848253`。
+
+The query string (**without `?`**), such as `from=app&v=19482848253`.
 
 ### $scheme
-请求的协议，`http`或者`https`。
+
+The request protocol, it's either `http` or `https`.
 
 ### $request_uri
-请求的完整地址，比如`http://hiproxy.org:8081/docs/index.html?from=google&v=_1847295727524#get-started`。
+
+The entire request URL, such as `http://hiproxy.org:8081/docs/index.html?from=google&v=_1847295727524#get-started`.
 
 ### $path
-请求的`path`（包括参数），比如`/docs/index.html?from=google&v=_1847295727524#get-started`。
+
+The request `path` (with query string), such as `/docs/index.html?from=google&v=_1847295727524#get-started`.
 
 ### $path_name
-请求的`path_name`（不包括参数），比如`/docs/index.html`。
+
+The request `path_name` (without query string), such as `/docs/index.html`.
 
 ### $base_name
-请求path的最后一部分，比如path为`/docs/index.html`，则$base_name为`index.html`。
+
+The last part of the path. For exampke, let's say the path is `/docs/index.html`, so that $base_name is `index.html`.
 
 ### $dir_name
-请求path的目录名称，比如path为`/docs/index.html`，则$dir_name为`/docs/`。
+
+The directory names of the path. For example, let's say path is `/docs/index.html`, so that $dir_name is `/docs/`.
 
 ### $hash
-请求url中的`hash`(包括`#`)，比如'#get-started'。
+
+The `hash` (with `#`) of request URL, such as `#get-started`.
 
 ### $hash_value
-请求url中的`hash`值(不包括`#`)，比如'get-started'。
+
+The `hash` value (without `#`) of request URL, such as `get-started`.
 
 ### $uri
-同`$request_uri`。
+
+Same as `$request_uri`.
 
 ### $cookie_*name*
-`cookie`的值，`name`表示字段名称，这个名称中的大写字母都改成了小写，`-`替换成了`_`。比如`$cookie_userId`表示`cookie`中`useId`的值。
+
+A `cookie` value. The `name` stands field name whose capital letters have been changed to lower ones and `-` characters have been changed to `_`. For example, `$cookie_userId` is for the value of `userId` in the `cookie`.
 
 ### $http_*name*
-请求头（request）中的字段值，`name`表示字段名称，这个名称中的大写字母都改成了小写，`-`替换成了`_`。比如请求头信息中包含`User-Agent: user agent`，可以使用变量`$http_user_agent`来获取这个值。
+
+The value of a request header field. The `name` stands field name whose capital letters have been changed to lower ones and `-` characters have been changed to `_`. For example, let's say `User-Agent: user agent` is a valid request header, then `$http_user_agent` can get its value.
 
 ### $arg_*name*
-请求参数的值，`name`表示字段名称，这个名称中的大写字母都改成了小写，`-`替换成了`_`。比如请求参数为`?from=google&v=_1847295727524`，可以通过`$arg_from`来获取`from`的值。
+
+The value of a request query parameter. The `name` stands field name whose capital letters have been changed to lower ones and `-` characters have been changed to `_`. For example, let's say the query string is ``?from=google&v=_1847295727524`, then `$arg_from` can get value of `from`.
 
