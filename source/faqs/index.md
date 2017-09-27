@@ -49,7 +49,7 @@ In addition, some directives come from Nginx which do simular things, such as `p
 
 <br/>
 
-### Are different configuration file used in multiple hiproxy projects using the same domain name?
+### Does hiproxy support that the same domain name is used in the configuration files of multi-projects?
 
 It's supported.
 
