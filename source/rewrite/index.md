@@ -36,7 +36,7 @@ $var_name
 
 ```bash
 [domain_name|variable] => {
-    # ...
+  # ...
 }
 ```
 **Example**
@@ -46,12 +46,12 @@ set $domain some.example.com
 
 # use a domain name directly
 some.example.com => {
-    # ...
+  # ...
 }
 
 # or use a variable
 $domain => {
-    # ...
+  # ...
 }
 ```
 ### location
@@ -64,7 +64,7 @@ $domain => {
 
 ```bash
 location [directory|file|regex|variables] {
-    # ...
+  # ...
 }
 ```
 **Example**
@@ -72,22 +72,22 @@ location [directory|file|regex|variables] {
 ```bash
 # directory
 location /some/path/ {
-    # ...
+  # ...
 }
 
 # specific file
 location /some/file.htm {
-    # ...
+  # ...
 }
 
 # regular expression
 location ~ ^/some/(path|path1)/.* {
-    # ...
+  # ...
 }
 
 # variables
 location $some/$path {
-    # ...
+  # ...
 }
 ```
 ### Directives
@@ -127,7 +127,7 @@ The brief syntax can define some basic rules, no need `location` or other direct
 **Syntax**
 
 ```bash
-domain ==> domain|path
+domain => domain|path
 ```
 
 **Example**
@@ -149,32 +149,32 @@ api.hiproxy.org/mock => $local/mock;
 ```bash
 # rewrite folder
 api.hiproxy.org/user/ => {
-    proxy_pass local.hiproxy.org/user/;
+  proxy_pass local.hiproxy.org/user/;
 
-    # proxy request config
-    proxy_set_header Host api.hiproxy.org;
-    proxy_set_header other value;
-    proxy_hide_header other;
+  # proxy request config
+  proxy_set_header Host api.hiproxy.org;
+  proxy_set_header other value;
+  proxy_hide_header other;
+  
+  proxy_set_cookie userid 20150910121359;
+  proxy_hide_cookie sessionid;
 
-    proxy_set_cookie userid 20150910121359;
-    proxy_hide_cookie sessionid;
+  # response config
+  set_cookie sessionID E3BF86A90ACDD6C5FF49ACB09;
+  set_header proxy hiproxy;
 
-    # response config
-    set_cookie sessionID E3BF86A90ACDD6C5FF49ACB09;
-    set_header proxy hiproxy;
+  # allow CORS
+  set_header Access-Control-Allow-Origin *;
 
-    # allow CORS
-    set_header Access-Control-Allow-Origin *;
-
-    hide_header proxy;
-    hide_cookie sessionID;
+  hide_header proxy;
+  hide_cookie sessionID;
 }
 ```
 
 ```bash
 # regexp support
 ~ /(demo|example)/([^\/]*\.(html|htm))$ => {
-   proxy_pass http://127.0.0.1:9999/$1/src/$2;
+  proxy_pass http://127.0.0.1:9999/$1/src/$2;
 }
 ```
 
@@ -187,55 +187,53 @@ set $id 1234567;
 
 # standard rewrite url
 $domain => {
-    proxy_pass http://$local/api/mock/;
-    set $id 1234;
-    set $mock_user user_$id;
-    set_header Host $domain;
-    set_header UserID $mock_user;
-    set_header Access-Control-Allow-Origin *;
+  proxy_pass http://$local/api/mock/;
+  set $id 1234;
+  set $mock_user user_$id;
+  set_header Host $domain;
+  set_header UserID $mock_user;
+  set_header Access-Control-Allow-Origin *;
 }
 
 blog.hiproxy.org => {
-    set_header Access-Control-Allow-Origin *;
+  set_header Access-Control-Allow-Origin *;
 
-    set $node_server 127.0.0.1:3008;
-    set $order order;
-    set $cookie1 login=true;expires=20160909;
+  set $node_server 127.0.0.1:3008;
+  set $order order;
+  set $cookie1 login=true;expires=20160909;
 
-    location /$api/$order/detail {
-        proxy_pass http://$node_server/user/?domain=$domain;
-        set_header Set-Cookie userID 200908204140;
-    }
+  location /$api/$order/detail {
+    proxy_pass http://$node_server/user/?domain=$domain;
+    set_header Set-Cookie userID 200908204140;
+  }
 
-    location ~ /(usercenter|userinfo)/ {
-        set $cookie login=true;expires=20180808;
-        set $id 56789;
+  location ~ /(usercenter|userinfo)/ {
+    set $cookie login=true;expires=20180808;
+    set $id 56789;
 
-        proxy_pass http://127.0.0.1:3008/info/;
+    proxy_pass http://127.0.0.1:3008/info/;
 
-        set_cookie userID 200908204140;
-        set_cookie userName user_$id;
-    }
+    set_cookie userID 200908204140;
+    set_cookie userName user_$id;
+  }
 
-    location ~ /local\/(.*)(\?(.*))? {
-        send_file ./mock/$1.json;
-    }
+  location ~ /local/(.*)(\?(.*))? {
+    send_file ./mock/$1.json;
+  }
 
-    location /dev {
-        #alias /site/path/;
-        alias ./src/view/;
-        root app.html
-    }
+  location /dev {
+    #alias /site/path/;
+    alias ./src/view/;
+    root app.html
+  }
 
-    location /multiple {
-        echo <h1>hello_echo</h1>;
-        echo <p>test echo directive</p>;
-        echo <p>finish</p>;
-    }
-
+  location /multiple {
+    echo <h1>hello_echo</h1>;
+    echo <p>test echo directive</p>;
+    echo <p>finish</p>;
+  }
 }
 ```
-
 
 [hosts]: ../configuration/hosts.html
 [Nginx]: http://nginx.org/en/docs/

@@ -165,13 +165,13 @@ They are valid only in then same domain and make directives ignored which has th
 
 Description: specify certificate file
 
-parameter: **ssl_certificate** file.crt（It must be relative path, and would be improve in the furture.）
+parameter: **ssl_certificate** file.crt
 
 Example:
 
 ```bash
 example.com => {
-    ssl_certificate /user/root/.hiproxy/cert/example.crt;
+  ssl_certificate /user/root/.hiproxy/cert/example.crt;
 }
 
 ```
@@ -180,13 +180,13 @@ example.com => {
 
 Description: specify the file storing private key
 
-parameter: **ssl_certificate_key** file.key（It must be relative path, and would be improve in the furture.）
+parameter: **ssl_certificate_key** file.key
 
 Example:
 
 ```bash
 example.com => {
-    ssl_certificate_key /user/root/.hiproxy/cert/example.key;
+  ssl_certificate_key /user/root/.hiproxy/cert/example.key;
 }
 
 ```
