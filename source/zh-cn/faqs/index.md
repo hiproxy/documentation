@@ -49,7 +49,7 @@ hiproxy.org => {
 
 <br/>
 
-### hiproxy多个项目中的不同配置文件使用相同的域名吗？
+### hiproxy支持多个项目中的不同配置文件使用相同的域名吗？
 
 支持。
 
@@ -74,7 +74,7 @@ hiproxy.org => {
 
 默认情况下，在代理https请求的时候，hiproxy会**自动生成证书**，并使用hiproxy自定义的CA证书签名。用户只需要导入hiproxy的根证书。
 
-如果用户需要使用自定义的证书，可以·使用hiproxy提供的指令来配置：
+如果用户需要使用自定义的证书，可以使用hiproxy提供的指令来配置：
 
 ```
 ssl_certificate     ./hiproxy.org.crt;
