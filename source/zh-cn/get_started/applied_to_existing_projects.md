@@ -5,13 +5,13 @@ title: 运用到现有项目中
 >
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
-## 全局安装hiproxy
+## 1、全局安装hiproxy
 
 如果你还没有安装[hiproxy](https://github.com/hiproxy/hiproxy)，请查看[如何安装](./installation.html)hiproxy。
 
 我们只需要把hiproxy安装到全局就可以了，**不需要将hiproxy作为一个依赖安装到每个项目中**。
 
-## 添加配置文件
+## 2、添加配置文件
 
 hiproxy的两个理念：
 
@@ -56,23 +56,27 @@ workspace
 > * 支持的语法：`*`, `?`, `[abc]`, `[a-z]`, `[^a-z]`, `[!a-z]`；
 > * 不支持的语法：`**`。
 
-### hosts
+### 2.1、hosts
 
 [hosts](../configuration/hosts.html)跟系统hosts类似，只不过这个hosts是放到项目中的，如果我们在项目根目录下面创建了hosts文件并且文件名称为`hosts`，hiproxy能自动发现并解析它。
 
 如果文件名称不是`hosts`，则需要我们通过`-c, --hosts-file`来指定。
 
-### rewrite
+hosts配置详情，请查看[hosts配置](../configuration/hosts.html)。
+
+### 2.2、rewrite
 
 [rewrite](../configuration/rewrite.html)跟hosts一样，也是放到项目中的，如果我们在项目根目录下面创建了名称为`rewrite`的文件，hiproxy也能自动发现并解析它。
 
 如果文件名称不是`rewrite`，则需要我们通过`-r, --rewrite-file`来指定。
 
-## 提交git
+rewrite配置详情，请查看[rewrite配置](../configuration/rewrite.html)
+
+## 3、提交git
 
 hiproxy希望大家能把上面添加的hosts/rewrite配置文件提交到git中，这样团队中的成员更新代码之后，就能使用这些配置，免去了互相拷贝配置文件的苦恼。
 
-## 启动服务
+## 4、启动服务
 
 hiproxy的理念是基于**工作空间**。我们需要在工作空间下启动hiproxy代理服务。假设我们所有的项目都存放在`~/workspace/`，那么这么目录就是我们的工作空间。
 
@@ -87,7 +91,7 @@ hiproxy start -w ~/workspace/
 
 **提示**：在启动hiproxy代理服务的时候，建议使用`-o, --open [browser-name]`来打开一个浏览器窗口并自动配置好代理。这样就不需要我们自己手动去配置代理。
 
-## 开发调试
+## 5、开发调试
 
 启动hiproxy代理服务之后，打开的浏览器窗口里面的所有请求，如果配置了代理规则，都会交给hirpoxy去处理。
 
