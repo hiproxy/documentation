@@ -56,7 +56,7 @@ workspace
 > * 支持的语法：`*`, `?`, `[abc]`, `[a-z]`, `[^a-z]`, `[!a-z]`；
 > * 不支持的语法：`**`。
 
-### 2.1、hosts
+### 2.1、添加hosts
 
 [hosts](../configuration/hosts.html)跟系统hosts类似，只不过这个hosts是放到项目中的，如果我们在项目根目录下面创建了hosts文件并且文件名称为`hosts`，hiproxy能自动发现并解析它。
 
@@ -64,7 +64,7 @@ workspace
 
 hosts配置详情，请查看[hosts配置](../configuration/hosts.html)。
 
-### 2.2、rewrite
+### 2.2、添加rewrite
 
 [rewrite](../configuration/rewrite.html)跟hosts一样，也是放到项目中的，如果我们在项目根目录下面创建了名称为`rewrite`的文件，hiproxy也能自动发现并解析它。
 
