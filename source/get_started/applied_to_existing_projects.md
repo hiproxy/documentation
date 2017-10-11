@@ -3,13 +3,13 @@ title: Applied to existing projects
 
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
-## Global install hiproxy
+## 1. Global install hiproxy
 
 If you haven't installed [hiproxy](https://github.com/hiproxy/hiproxy)，check [Installation](./installation.html).
 
 All you have to do is to global install `hiproxy`, **Local install is NOT necessary**
 
-## Add configuration files
+## 2. Add configuration files
 
 Two rules of 'hiproxy':
 
@@ -54,23 +54,27 @@ Of course, to put all configuration files outside of the project directory, just
 > * Supported syntax：`*`, `?`, `[abc]`, `[a-z]`, `[^a-z]`, `[!a-z]`;
 > * Unsupported syntax：`**`.
 
-### hosts
+### 2.1 Add hosts
 
 [hosts](../configuration/hosts.html) is similar to hosts, except it's located in the project directory, hiproxy will automatically find and resolve the hosts file named 'hosts' from the root directory of the project.
 
-If the file name isn't `hosts`, just specify it via option `-c, --hosts-file`
+If the file name isn't `hosts`, just specify it via option `-c, --hosts-file`.
 
-### rewrite
+You can see [hosts](../configuration/hosts.html) for more details.
+
+### 2.2 Add rewrite
 
 [rewrite](../configuration/rewrite.html) is similar to `hosts`, it's also located in the project directory, hiproxy will automatically find and resolve the file named 'rewrite' from the root directory of the project.
 
-If the file name isn't `rewrite`, just specify it via option `-r, --rewrite-file`
+If the file name isn't `rewrite`, just specify it via option `-r, --rewrite-file`.
 
-## Git commit
+You can see [rewrite](../configuration/rewrite.html) for more details.
+
+## 3. Git commit
 
 Git commitment is highly recommended, submit configuration files (hosts/rewrite) to the repository for version control and teamwork.
 
-## Start service
+## 4. Start service
 
 The concept of hiproxy is based on **Workspace**. The proxy service of hiproxy should be started in the workspace. Assuming that all projects are located in `~/workspace/`, then this directory is the `Workspace`.
 
@@ -85,7 +89,7 @@ hiproxy start -w ~/workspace/
 
 **TIPS**: While on starting the proxy, use the option `-o, --open [browser-name]` to open a new browser window and configure the proxy automatically. Therefore, no manual configuring is needed.
 
-## Development debugging
+## 5. Development debugging
 
 When the proxy is started, if the proxy rules are configured, all requests from the browser window will be handled by hiproxy.
 
