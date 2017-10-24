@@ -17,8 +17,8 @@ title: Node.js API
     * [.addHostsFile(filePath)](#ProxyServer+addHostsFile) ⇒ [<code>ProxyServer</code>](#ProxyServer)
     * [.addRewriteFile(filePath)](#ProxyServer+addRewriteFile) ⇒ [<code>ProxyServer</code>](#ProxyServer)
     * [.openBrowser(browserName, url, [usePacProxy])](#ProxyServer+openBrowser) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-    * [.findConfigFiels([dir])](#ProxyServer+findConfigFiels) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-
+    * [.enableConfFile(confFileType, filePath)](#ProxyServer+enableConfFile) ⇒ [<code>ProxyServer</code>](#ProxyServer)
+    * [.disableConfFile(confFileType, filePath)](#ProxyServer+disableConfFile) ⇒ [<code>ProxyServer</code>](#ProxyServer)
 <a name="new_ProxyServer_new"></a>
 
 ### new ProxyServer(httpPort, httpsPort)
@@ -94,19 +94,7 @@ Open a browser.
 | url | <code>String</code> |  | the URL should be opened |
 | [usePacProxy] | <code>Boolean</code> | <code>false</code> | whether use PAC proxy |
 
-<a name="ProxyServer+findConfigFiels"></a>
-
-### proxyServer.findConfigFiles([dir]) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-Look for configuration files within the workspace (directory).
-Hiproxy looks for configuration files from immediate child directories of workspace.
-
-**Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
-**Access**: public  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [dir] | <code>String</code> | <code>process.cwd()</code> | workspace (directory) |
-
+<a name="ProxyServer+enableConfFile"></a>
 
 ### proxyServer.enableConfFile(confFileType, filePath) ⇒ [<code>ProxyServer</code>](#ProxyServer)
 Enable specified configuration file.
@@ -118,6 +106,8 @@ Enable specified configuration file.
 | --- | --- | --- | --- |
 | confFileType | <code>String</code> |  | file type (host/rewrite) |
 | filePath | <code>String</code> \| <code>Array</code> |  | modified file path(s) |
+
+<a name="ProxyServer+disableConfFile"></a>
 
 ### proxyServer.disableConfFile(confFileType, filePath) ⇒ [<code>ProxyServer</code>](#ProxyServer)
 Disable specified configuration file.

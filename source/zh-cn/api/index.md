@@ -19,8 +19,9 @@ title: Node.js API
     * [.addHostsFile(filePath)](#ProxyServer+addHostsFile) ⇒ [<code>ProxyServer</code>](#ProxyServer)
     * [.addRewriteFile(filePath)](#ProxyServer+addRewriteFile) ⇒ [<code>ProxyServer</code>](#ProxyServer)
     * [.openBrowser(browserName, url, [usePacProxy])](#ProxyServer+openBrowser) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-    * [.findConfigFiels([dir])](#ProxyServer+findConfigFiels) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-
+    * [.enableConfFile(confFileType, filePath)](#ProxyServer+enableConfFile) ⇒ [<code>ProxyServer</code>](#ProxyServer)
+    * [.disableConfFile(confFileType, filePath)](#ProxyServer+disableConfFile) ⇒ [<code>ProxyServer</code>](#ProxyServer)
+    
 <a name="new_ProxyServer_new"></a>
 
 ### new ProxyServer(httpPort, httpsPort)
@@ -96,19 +97,7 @@ hiproxy代理服务器
 | url | <code>String</code> |  | 要打开的url |
 | [usePacProxy] | <code>Boolean</code> | <code>false</code> | 是否使用自动代理 |
 
-<a name="ProxyServer+findConfigFiels"></a>
-
-### proxyServer.findConfigFiles([dir]) ⇒ [<code>ProxyServer</code>](#ProxyServer)
-在指定工作空间（目录）下查找配置文件
-hiproxy会在指定的空间下所有一级目录下查找配置文件
-
-**Kind**: instance method of [<code>ProxyServer</code>](#ProxyServer)  
-**Access**: public  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [dir] | <code>String</code> | <code>process.cwd()</code> | 工作空间（目录） |
-
+<a name="ProxyServer+enableConfFile"></a>
 
 ### proxyServer.enableConfFile(confFileType, filePath) ⇒ [<code>ProxyServer</code>](#ProxyServer)
 启用指定配置文件
@@ -120,6 +109,8 @@ hiproxy会在指定的空间下所有一级目录下查找配置文件
 | --- | --- | --- | --- |
 | confFileType | <code>String</code> |  | 文件类型(host/rewrite) |
 | filePath | <code>String</code> \| <code>Array</code> |  | 修改的文件路径 |
+
+<a name="ProxyServer+disableConfFile"></a>
 
 ### proxyServer.disableConfFile(confFileType, filePath) ⇒ [<code>ProxyServer</code>](#ProxyServer)
 禁用指定配置文件
