@@ -7,7 +7,6 @@
   },
   "scripts": {
     "build": "rm -rdf public && hexo generate",
-    "eslint": "eslint .",
     "deploy": "npm run build && hexo deploy"
   },
   "dependencies": {
