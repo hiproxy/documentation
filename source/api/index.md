@@ -30,8 +30,7 @@ Hiproxy's proxy server.
 | options | <code>Object</code> | options |
 | options.httpPort | <code>Number</code> | The HTTP proxy service port. If `0`/`null`/`undefined` is passed, an available port number will be automatically assigned. |
 | options.httpsPort | <code>Number</code> | HTTPS proxy service port number. If `0` is passed, an available port will be automatically assigned. If pass `null` or `undefined`, the HTTPS service will not be started. |
-| [options.dir] | <code>String</code> | 
-The hiproxy workspace defaults to the current working directory of the Node.js process(`process.cwd()`) |
+| [options.dir] | <code>String</code> | The hiproxy workspace defaults to the current working directory of the Node.js process(`process.cwd()`) |
 
 <a name="ProxyServer+start"></a>
 

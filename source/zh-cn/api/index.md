@@ -27,12 +27,6 @@ title: Node.js API
 ### new ProxyServer(httpPort, httpsPort)
 hiproxy代理服务器
 
-
-| Param | Type | Description |
-| --- | --- | --- |
-| httpPort | <code>Number</code> | http代理服务端口号 |
-| httpsPort | <code>Number</code> | https代理服务器端口号 |
-
 | Param | Type | Description |
 | --- | --- | --- |
 | options | <code>Object</code> | 配置参数 |
