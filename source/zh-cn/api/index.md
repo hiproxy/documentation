@@ -33,6 +33,13 @@ hiproxy代理服务器
 | httpPort | <code>Number</code> | http代理服务端口号 |
 | httpsPort | <code>Number</code> | https代理服务器端口号 |
 
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>Object</code> | 配置参数 |
+| options.httpPort | <code>Number</code> | http代理服务端口号，如果传递`0`/`null`/`undefined`，将会自动分配一个可用端口号 |
+| options.httpsPort | <code>Number</code> | https代理服务端口号，如果传递0，将会自动分配一个可用端口号，如果传递`null`或者`undefined`，不启动https服务。 |
+| [options.dir] | <code>String</code> | hiproxy工作空间，默认为当前工作目录(`process.cwd()`) |
+
 <a name="ProxyServer+start"></a>
 
 ### proxyServer.start([config]) ⇒ <code>Promise</code>

@@ -10,7 +10,7 @@ title: Node.js API
 **Extends**: <code>EventEmitter</code>  
 
 * [ProxyServer](#ProxyServer) ⇐ <code>EventEmitter</code>
-    * [new ProxyServer(httpPort, httpsPort)](#new_ProxyServer_new)
+    * [new ProxyServer({httpPort, httpsPort, dir})](#new_ProxyServer_new)
     * [.start(httpPort, httpsPort)](#ProxyServer+start) ⇒ <code>Promise</code>
     * [.stop()](#ProxyServer+stop) ⇒ [<code>ProxyServer</code>](#ProxyServer)
     * [.restart()](#ProxyServer+restart) ⇒ [<code>ProxyServer</code>](#ProxyServer)
@@ -21,14 +21,17 @@ title: Node.js API
     * [.disableConfFile(confFileType, filePath)](#ProxyServer+disableConfFile) ⇒ [<code>ProxyServer</code>](#ProxyServer)
 <a name="new_ProxyServer_new"></a>
 
-### new ProxyServer(httpPort, httpsPort)
+### new ProxyServer(options)
 Hiproxy's proxy server.
 
 
 | Param | Type | Description |
 | --- | --- | --- |
-| httpPort | <code>Number</code> | proxy server port for http |
-| httpsPort | <code>Number</code> | proxy server port for https |
+| options | <code>Object</code> | options |
+| options.httpPort | <code>Number</code> | The HTTP proxy service port. If `0`/`null`/`undefined` is passed, an available port number will be automatically assigned. |
+| options.httpsPort | <code>Number</code> | HTTPS proxy service port number. If `0` is passed, an available port will be automatically assigned. If pass `null` or `undefined`, the HTTPS service will not be started. |
+| [options.dir] | <code>String</code> | 
+The hiproxy workspace defaults to the current working directory of the Node.js process(`process.cwd()`) |
 
 <a name="ProxyServer+start"></a>
 
