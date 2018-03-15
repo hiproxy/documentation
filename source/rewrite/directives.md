@@ -7,11 +7,15 @@ title: Rewrite Directive
 
 `directive`（known as `command`）is for setting variable, or manipulating request/response.
 
-### set
+### Global Directives
+
+#### * set
 
 Description: define variables
 
-Syntax: **set** key value
+Syntax: 
+
+> **set** key value
 
 **Scope Chain**：global, domain, location
 
@@ -21,7 +25,7 @@ Example:
 set $server hiipack;
 ```
 
-### Directives corrlative proxy request
+### Request Directives
 
 The directives are `Request` instances to send request from proxy to target server.
 
@@ -31,7 +35,9 @@ The directives are `Request` instances to send request from proxy to target serv
 
 Description: setting a request header
 
-Syntax: **proxy_set_header** key value
+Syntax: 
+
+> **proxy_set_header** key value
 
 Example:
 
@@ -43,7 +49,9 @@ proxy_set_header Host some.example.com;
 
 Description: remove a request header
 
-Syntax: **proxy_hide_header** key
+Syntax: 
+
+> **proxy_hide_header** key
 
 Example:
 
@@ -55,7 +63,9 @@ proxy_hide_header Host;
 
 Description: setting a request cookie value
 
-Syntax: **proxy_set_cookie** key value
+Syntax: 
+
+> **proxy_set_cookie** key value
 
 Example:
 
@@ -67,7 +77,9 @@ proxy_set_cookie from hiproxy;
 
 Description: remove a request cookie value
 
-Syntax: **proxy_hide_cookie** key
+Syntax: 
+
+> **proxy_hide_cookie** key
 
 Example:
 
@@ -75,17 +87,89 @@ Example:
 proxy_hide_cookie from;
 ```
 
-### Directives correlative respose
+#### * proxy_method
+
+Description: set the request method.
+
+Syntax: 
+
+> **proxy_method** method
+
+Example:
+
+```bash
+proxy_method POST;
+```
+
+#### * proxy_set_body
+
+Description: set the request body content.
+
+Syntax: 
+
+> **proxy_set_body** body
+
+Example:
+
+```bash
+proxy_set_body "a=1&b=2&c=3";
+```
+
+#### * proxy_append_body
+
+Description: append content to the body.
+
+Syntax: 
+
+> **proxy_append_body** content
+
+Example:
+
+```bash
+proxy_append_body "&d=4";
+```
+
+#### * proxy_replace_body
+
+Description: replace part of the body.
+
+Syntax: 
+
+> **proxy_replace_body** oldVal newVal
+
+Example:
+
+```bash
+proxy_replace_body "a=1" "a=111";
+```
+
+### Response directives
 
 The directives are `Response` instances to let proxy response the browser.
 
 **Scope Chain**：domain, location
 
+#### * status
+
+Description: Set the response status code and status message.
+
+Syntax: 
+
+> **status** statusCode statusMessage
+
+Example:
+
+```bash
+status 477 "Authentication failed";
+```
+
 #### * set_header
 
 Description: add a header
 
-Syntax: **set_header** key value
+Syntax: 
+
+> **set_header** key value
 
 Example:
 
@@ -97,7 +181,9 @@ set_header SERVER hiproxy;
 
 Description: remove a header
 
-Syntax: **hide_header** key
+Syntax: 
+
+> **hide_header** key
 
 *Example*:
 
@@ -109,7 +195,9 @@ hide_header SERVER;
 
 Description: set a coolie value
 
-Syntax: **set_cookie** key value
+Syntax: 
+
+> **set_cookie** key value
 
 Example
 
@@ -121,7 +209,9 @@ set_cookie SESSION_ID 2BF36A09CB35FD71E;
 
 Description: remove a cookie value
 
-Syntax: **hide_cookie** key
+Syntax: 
+
+> **hide_cookie** key
 
 *Example*:
 
@@ -133,7 +223,9 @@ hide_cookie SESSION_ID;
 
 Description: send the specified file as response
 
-Syntax: **send_file** file_name
+Syntax: 
+
+> **send_file** file_name
 
 Example:
 
@@ -146,7 +238,9 @@ send_file /site/index.html;
 
 Description: response specified content
 
-Syntax: **echo** string
+Syntax: 
+
+> **echo** string
 
 Example:
 

@@ -9,7 +9,9 @@ title: rewrite指令
 
 `指令`（也称：`命令`）用于设置变量，或者对request/response做一些操作。
 
-### set
+### 全局指令
+
+#### * set
 
 描述：定义变量
 
@@ -77,11 +79,72 @@ proxy_set_cookie from hiproxy;
 proxy_hide_cookie from;
 ```
 
+#### * proxy_method
+
+描述：设置请求方法(GET、POST等)
+
+语法： **proxy_method** method
+
+示例：
+
+```bash
+proxy_method POST;
+```
+
+#### * proxy_set_body
+
+描述：设置请求的body内容.
+
+语法： **proxy_set_body** body
+
+示例：
+
+```bash
+proxy_set_body "a=1&b=2&c=3";
+```
+
+#### * proxy_append_body
+
+描述：向请求的body追加内容.
+
+语法： **proxy_append_body** content
+
+示例：
+
+```bash
+proxy_append_body "&d=4";
+```
+
+#### * proxy_replace_body
+
+描述：替换body中的部分内容.
+
+语法： **proxy_replace_body** oldVal newVal
+
+示例：
+
+```bash
+proxy_replace_body "a=1" "a=111";
+```
+
+
 ### 代理响应相关指令
 
 代理响应相关的指令用于配置代理服务器响应浏览器的`Response`对象。
 
 **作用域链**：domain, location
+
+#### * status
+
+描述：设置相应状态码和消息
+
+语法：**status** code message
+
+例子：
+
+```bash
+status 477 "Authentication failed";
+```
 
 #### * set_header
 

@@ -17,7 +17,7 @@ en:
     Rewrite:
       Introduction: index.html
       Scope: scope.html
-      Directive: directive.html
+      Directives: directives.html
       Built-in Variables: built_in_variable.html
   api:
     Node.js API:
