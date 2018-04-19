@@ -1,5 +1,5 @@
 # documentation
-hiporxy documentation site.
+hiproxy documentation site.
 
 ## Steps for Contributing Documentation
 
