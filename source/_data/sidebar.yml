@@ -52,7 +52,7 @@ zh-cn:
     Rewrite:
       简介: index.html
       作用域: scope.html
-      内置指令: directive.html
+      内置指令: directives.html
       内置变量: built_in_variable.html
   api:
     Node.js API:
