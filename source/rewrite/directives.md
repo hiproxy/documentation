@@ -3,6 +3,13 @@ title: Rewrite Directive
 
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
+<style>
+  h3 {margin-top: 5em!important;}
+  h3:first-of-type {margin-top: 1em!important;}
+
+  h4 {margin-top: 5em!important;}
+</style>
+
 ## Directive
 
 `directive`（known as `command`）is for setting variable, or manipulating request/response.
@@ -24,6 +31,14 @@ Example:
 ```bash
 set $server hiipack;
 ```
+
+
+
+
+
+
+
+
 
 ### Request Directives
 

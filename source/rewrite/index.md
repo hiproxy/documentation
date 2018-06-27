@@ -54,6 +54,23 @@ $domain => {
   # ...
 }
 ```
+
+Or
+
+```bash
+set $domain some.example.com
+
+# use a domain name directly
+domain some.example.com {
+  # ...
+}
+
+# or use a variable
+domain $domain {
+  # ...
+}
+```
+
 ### location
 
 `location` represent a specific path. All configuration about the path should be in the `location` block.

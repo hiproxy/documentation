@@ -15,6 +15,9 @@ post_asset_folder: false
 per_page: 0
 default_layout: page
 
+marked:
+  gfm: false
+
 theme: navy
 deploy:
   type: git

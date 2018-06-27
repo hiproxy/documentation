@@ -5,6 +5,13 @@ title: rewrite指令
 >
 > If you are willing to help hiproxy to write documentation, please contact zdying@live.com, thank you!
 
+<style>
+  h3 {margin-top: 5em!important;}
+  h3:first-of-type {margin-top: 1em!important;}
+
+  h4 {margin-top: 5em!important;}
+</style>
+
 ## 指令
 
 `指令`（也称：`命令`）用于设置变量，或者对request/response做一些操作。

@@ -56,6 +56,23 @@ $domain => {
     # ...
 }
 ```
+
+或者
+
+```bash
+set $domain some.example.com
+
+# 直接使用域名
+domain some.example.com {
+    # ...
+}
+
+# 或者使用变量
+domain $domain {
+    # ...
+}
+```
+
 ### location
 
 location 用来指定域名中的一个具体的路径，这个路径的所有配置都在 location 块中。
