@@ -14,7 +14,7 @@
       <ul id="intro-cmd-wrap">
         <li class="intro-cmd-item">npm install hiproxy -g</li>
         <li class="intro-cmd-item">hiproxy init</li>
-        <li class="intro-cmd-item">hiproxy start --rewrite-file rewrite</li>
+        <li class="intro-cmd-item">hiproxy start --open</li>
       </ul>
       <div id="intro-get-started-wrap">
         <a href="get_started/" id="intro-get-started-link">{{ __('index.get_started') }}</a>
